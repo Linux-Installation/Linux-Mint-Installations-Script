@@ -3,15 +3,16 @@
 rep=""
 pakete=""
 service="" #be careful not fully implemented now!
-remove=""
+remove=""   
 
 sudo apt-get update
 sudo apt-get -y dist-upgrade
 
 export DEBIAN_FRONTEND=noninteractive
-if [ $( cat /etc/issue | cut -d" " -f2 | cut -d. -f1-2 ) != 22.04 ]  
+grep Wilma /etc/issue
+if [ $? != 0 ]  
 then 
-	read -p "Du benutzt kein Ubuntu Derivat der Version 22.04 Wenn du das Script trotzdem fortsetzen möchtest drücke j!"
+	read -p "Du benutzt kein Linux Mint der Version 22! Wenn du das Script trotzdem fortsetzen möchtest drücke j!"
 	echo    # (optional) move to a new line
 	if [[ ! $REPLY =~ ^[Jj]$ ]]
 	then
