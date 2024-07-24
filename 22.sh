@@ -196,14 +196,6 @@ then
 sudo flatpak -y install flathub org.tabos.roger  
 fi
 
-#ProtonUp
-read -p "Soll das Programm ProtonUp-Qt installiert werden? Dann drücke j!"
-echo    # (optional) move to a new line
-if [[ $REPLY =~ ^[Jj]$ ]]
-then
-sudo flatpak -y install flathub net.davidotek.pupgui2  
-fi
-
 #Laptop Akkulaufzeit
 read -p "Ist dies ein Laptop? Soll die Akkulaufzeit erhöht werden? Dann drücke j!"
 echo    # (optional) move to a new line
