@@ -30,8 +30,8 @@ else
 	echo "Breche ab!"
 	exit 1
 fi
-sudo sed -i "/recordfail_broken=/{s/1/0/}" /etc/grub.d/00_header
-sudo update-grub
+#sudo sed -i "/recordfail_broken=/{s/1/0/}" /etc/grub.d/00_header
+#sudo update-grub
 #Config-Daten
 verzeichnis=$(pwd)
 config=$(pwd)/download
