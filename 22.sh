@@ -215,14 +215,6 @@ then
 	#TODO Find PPA for TLPUI - https://github.com/d4nj1/TLPUI
 fi
 
-#Ubuntu Mate
-read -p "Are you using Ubuntu Mate and want to install the Advanced Mate Menu and a tool to administrativ users? Then press j!"
-echo    # (optional) move to a new line
-if [[ $REPLY =~ ^[Jj]$ ]]
-then
-    pakete=`echo "$pakete mate-menu gnome-system-tools"`
-fi
-
 #no 22.04 yet
 #y-ppa-manager
 #Entfernen
