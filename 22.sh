@@ -5,8 +5,9 @@ pakete=""
 service="" #be careful not fully implemented now!
 remove=""   
 
-sudo apt-get update
-sudo apt-get -y dist-upgrade
+sudo apt -y install nala
+#sudo nala fetch
+sudo nala full-upgrade -y
 
 export DEBIAN_FRONTEND=noninteractive
 grep Wilma /etc/issue
@@ -245,7 +246,7 @@ pakete=`echo "$pakete synaptic krita krita-l10n ubuntu-restricted-extras pidgin 
 
 #Updaten
 cd ~/Downloads/
-sudo apt install -y wget apt-transport-https
+sudo nala install -y wget apt-transport-https
 sudo wget -O /usr/share/keyrings/element-io-archive-keyring.gpg https://packages.element.io/debian/element-io-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/element-io-archive-keyring.gpg] https://packages.element.io/debian/ default main" | sudo tee /etc/apt/sources.list.d/element-io.list
 
@@ -266,12 +267,11 @@ for i in $rep; do
 done
 #fi
 
-sudo apt-get update
-sudo apt-get -y dist-upgrade
+sudo nala full-upgrade -y
 echo $paketerec > paketerec.log
-sudo apt -y install --no-install-recommends $paketerec
+sudo nala install -y --no-install-recommends $paketerec
 echo $pakete > pakete.log
-sudo apt -y install $pakete
+sudo nala install -y $pakete
 
 #hide Dayon Assistant
 sudo mv $config/usr/share/applications/dayon_assistant.desktop /usr/share/applications/
@@ -287,7 +287,7 @@ if [ ! -z $service ]
 then
 sudo systemctl enable $service
 fi
-sudo apt -y --fix-broken install
+sudo nala install --fix-broken -y
 sudo dpkg-reconfigure -plow unattended-upgrades
 sudo cp -f $config/50unattended-upgrades /etc/apt/apt.conf.d/50unattended-upgrades
 sudo cp -f $config/firefoxUpdateOnShutdown.service /etc/systemd/system/firefoxUpdateOnShutdown.service
@@ -296,7 +296,7 @@ sudo systemctl enable firefoxUpdateOnShutdown.service
 
 #Hardware probe
 sudo -E hw-probe -all -upload
-sudo apt-get purge -y hw-probe
+sudo nala purge -y hw-probe
 
 #Aufräumen
 rm -rf $verzeichnis/Install-Skript

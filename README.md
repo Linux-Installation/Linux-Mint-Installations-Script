@@ -54,6 +54,7 @@ New Flatpak Repository: [Flathub](https://flathub.org)
 - [konsole](https://konsole.kde.org/)
 - [element-desktop](https://element.io/get-started)
 - [redshift](http://jonls.dk/redshift/)
+- [nala](https://gitlab.com/volian/nala)
 
 ### other
 At the end of the script hardware probe will anonymously collect hardware details of the computers (devices information and depersonalized system logs) for helping people to collaboratively debug hardware related issues, check for Linux-compatibility and find drivers. For more Informations look here: https://linux-hardware.org/
