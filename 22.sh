@@ -186,7 +186,6 @@ then
     pakete=`echo "$pakete vivaldi-stable"`
 fi
 
-
 #gajim
 read -p "Do you want to install gajim? Then press y!"
 #echo    # (optional) move to a new line
@@ -256,7 +255,7 @@ sudo add-apt-repository -y ppa:regal/dayon
 #sudo add-apt-repository -y ppa:webupd8team/y-ppa-manager
 
 #Aktiviert die Standard Ubuntu Quellen für Fremd-Software-Entwickler
-sudo add-apt-repository -y "deb http://archive.canonical.com/ubuntu $(lsb_release -sc) partner" 
+#sudo add-apt-repository -y "deb http://archive.canonical.com/ubuntu $(lsb_release -sc) partner" 
 
 echo $rep > rep.log
 
