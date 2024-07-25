@@ -17,14 +17,12 @@ This is my post Installation script which "automate" tasks which I do after inst
 
 ### software repositories
 - [Element](https://element.io/get-started)
-- [Firefox](https://mzl.la/1xKrIV5) 
 - (Optional) [Mesa for Gaming on AMD/Intel](https://github.com/ValveSoftware/Proton/wiki/Requirements#amdintel)
 - activate Canoncial Partner repository
 
 ### Flatpak packages/repository
 New Flatpak Repository: [Flathub](https://flathub.org)
 #### Flatpak Packages
-- (Optional) [Indicator-KDEConnect](https://flathub.org/apps/details/com.github.bajoja.indicator-kdeconnect)
 - (Optional) [Roger Router](https://flathub.org/apps/details/org.tabos.roger)
 - (Optional) [ProtonUp-Qt](https://flathub.org/apps/details/net.davidotek.pupgui2)
 - (Optional) [TLPUI](https://flathub.org/apps/com.github.d4nj1.tlpui)
@@ -39,7 +37,6 @@ New Flatpak Repository: [Flathub](https://flathub.org)
 - [Krita](https://krita.org)
 - [ubuntu-restricted-extras](https://help.ubuntu.com/community/RestrictedFormats)
 - [pidgin](https://www.pidgin.im/)
-- [pinta](https://www.pinta-project.com/)
 - nfs-common
 - [grub-customizer](https://launchpad.net/grub-customizer)
 - language-pack-kde-de
@@ -48,7 +45,6 @@ New Flatpak Repository: [Flathub](https://flathub.org)
 - [unoconv](https://github.com/unoconv/unoconv)
 - [mediathekview](https://mediathekview.de/)
 - [python3-gnupg](https://pypi.org/project/python-gnupg/)
-- [gnome-software](https://gitlab.gnome.org/GNOME/gnome-software) + flatpak plugin
 - [fonts-symbola](https://fontlibrary.org/de/font/symbola)
 - [vlc](https://www.videolan.org/vlc/index.de.html)
 - Codecs (libxvidcore4 + libfaac0)
@@ -59,9 +55,6 @@ New Flatpak Repository: [Flathub](https://flathub.org)
 - [konsole](https://konsole.kde.org/)
 - [element-desktop](https://element.io/get-started)
 - [redshift](http://jonls.dk/redshift/)
-
-### removed Software (if installed)
-- (Optional) pluma (replaced with kate)
 
 ### other
 At the end of the script hardware probe will anonymously collect hardware details of the computers (devices information and depersonalized system logs) for helping people to collaboratively debug hardware related issues, check for Linux-compatibility and find drivers. For more Informations look here: https://linux-hardware.org/
