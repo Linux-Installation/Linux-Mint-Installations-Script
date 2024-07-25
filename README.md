@@ -1,6 +1,8 @@
 # Linux Mint Installation - Installations Script
 ## Suported Distributions
-In general all Ubuntu Distributions are supported, but this script was made for Ubuntu Mate 22.04 LTS.
+In general all Linux Mint flavours are supported, but this script was made for Linux Mint Cinnamon.
+This script is not testet with LMDE! For LMDE you can use [this](https://github.com/Linux-Installation/LMDE-Installations-Script) script, which admittedly isn't maintained aswell as this one.
+Some Parts of this script works for Ubuntu, but some parts will throw errors... I don't recommend using it with Ubuntu!
 
 ## Why
 This is my post Installation script which "automate" tasks which I do after installing Ubuntu Mate.
