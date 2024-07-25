@@ -1,6 +1,4 @@
-Note: Because of the heavy snap use of Ubuntu, I will switch me and my users to [Linux Mint](https://github.com/Linux-Installation/Linux-Mint-Installations-Script) and therefore this script won't be optimised for Ubuntu (Mate) in the Future and this repo will be archived! The Linux Mint Script will probably work with Ubuntu 24.04 aswell, but no guarantee and support.
-
-# Ubuntu Installation - Installations Script
+# Linux Mint Installation - Installations Script
 ## Suported Distributions
 In general all Ubuntu Distributions are supported, but this script was made for Ubuntu Mate 22.04 LTS.
 
