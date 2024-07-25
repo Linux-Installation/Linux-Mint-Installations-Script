@@ -5,7 +5,7 @@ This script is not testet with LMDE! For LMDE you can use [this](https://github.
 Some Parts of this script works for Ubuntu, but some parts will throw errors... I don't recommend using it with Ubuntu!
 
 ## Why
-This is my post Installation script which "automate" tasks which I do after installing Ubuntu Mate.
+This is my post Installation script, which "automate" tasks which I do after installing Linux Mint.
 
 ## Contents
 ### Configuration Files
