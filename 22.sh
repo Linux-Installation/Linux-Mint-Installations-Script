@@ -38,6 +38,18 @@ sudo update-grub
 verzeichnis=$(pwd)
 config=$(pwd)/download
 
+read -p "Soll das Programm KDE-Connect-Monitor (Zugriff von und aufs Handy) installiert werden? Dann drücke j!"
+#echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Jj]$ ]]
+then
+	pakete=`echo "$pakete kdeconnect"`
+	if [ -f "/usr/bin/cinnamon" ] 
+	then
+		cinnamon-kdeconnect=true
+	fi
+fi
+
+
 if [ "$1" = "" ] || [ "$1" = "rep" ]
 then
 #Kopiere bei Bedarf Firefox, Chromium und gajim Einstellungen
@@ -54,17 +66,19 @@ then
 	sudo mv $config/.local/share/applications/dayon_assistant.desktop /home/$i/.local/share/applications/
 	
 	#kdeconnect-cinnamon
-	if [ ! -d /home/$i/.config/cinnamon/spices/kdecapplet@joejoetv ] 
+	if [ cinnamon-kdeconnect=true ]
 	then
-		sudo mkdir -p /home/$i/.config/cinnamon/spices/
-		sudo cp -rf $config/.config/cinnamon/spices/kdecapplet@joejoetv /home/$i/.config/cinnamon/spices/
+		if [ ! -d /home/$i/.config/cinnamon/spices/kdecapplet@joejoetv ] 
+		then
+			sudo mkdir -p /home/$i/.config/cinnamon/spices/
+			sudo cp -rf $config/.config/cinnamon/spices/kdecapplet@joejoetv /home/$i/.config/cinnamon/spices/
+		fi
+		if [ ! -d /home/$i/.local/share/cinnamon/applets/kdecapplet@joejoetv ] 
+		then
+			sudo mkdir -p /home/$i/.local/share/cinnamon/applets/
+			sudo cp -rf $config/.local/share/cinnamon/applets/kdecapplet@joejoetv /home/$i/.local/share/cinnamon/applets/
+		fi
 	fi
-	if [ ! -d /home/$i/.local/share/cinnamon/applets/kdecapplet@joejoetv ] 
-	then
-		sudo mkdir -p /home/$i/.local/share/cinnamon/applets/
-		sudo cp -rf $config/.local/share/cinnamon/applets/kdecapplet@joejoetv /home/$i/.local/share/cinnamon/applets/
-	fi
-	
 	#gajim
 	declare dir=/home/$i/.config/gajim
 	if [ -d $dir ] 
@@ -189,13 +203,6 @@ then
         sudo sh -c 'echo "Name=gajim" >> /etc/xdg/autostart/gajim.desktop'
         sudo sh -c 'echo "Exec=gajim" >> /etc/xdg/autostart/gajim.desktop'
     fi
-fi
-
-read -p "Soll das Programm KDE-Connect-Monitor (Zugriff von und aufs Handy) installiert werden? Dann drücke j!"
-#echo    # (optional) move to a new line
-if [[ $REPLY =~ ^[Jj]$ ]]
-then
-	pakete=`echo "$pakete kdeconnect"`
 fi
 
 #flathub
