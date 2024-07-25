@@ -52,6 +52,19 @@ then
 	#hide Dayon Assistant
 	sudo mkdir -p /home/$i/.local/share/applications
 	sudo mv $config/.local/share/applications/dayon_assistant.desktop /home/$i/.local/share/applications/
+	
+	#kdeconnect-cinnamon
+	if [ ! -d /home/$i/.config/cinnamon/spices/kdecapplet@joejoetv ] 
+	then
+		sudo mkdir -p /home/$i/.config/cinnamon/spices/
+		sudo cp -rf $config/.config/cinnamon/spices/kdecapplet@joejoetv /home/$i/.config/cinnamon/spices/
+	fi
+	if [ ! -d /home/$i/.local/share/cinnamon/applets/kdecapplet@joejoetv ] 
+	then
+		sudo mkdir -p /home/$i/.local/share/cinnamon/applets/
+		sudo cp -rf $config/.local/share/cinnamon/applets/kdecapplet@joejoetv /home/$i/.local/share/cinnamon/applets/
+	fi
+	
 	#gajim
 	declare dir=/home/$i/.config/gajim
 	if [ -d $dir ] 
@@ -178,18 +191,15 @@ then
     fi
 fi
 
-#flathub
-sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
-#https://github.com/Bajoja/indicator-kdeconnect
 read -p "Soll das Programm KDE-Connect-Monitor (Zugriff von und aufs Handy) installiert werden? Dann drücke j!"
 #echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Jj]$ ]]
 then
-	##sudo add-apt-repository -y ppa:webupd8team/indicator-kdeconnect outdated!
-	sudo flatpak -y install flathub com.github.bajoja.indicator-kdeconnect
 	pakete=`echo "$pakete kdeconnect"`
 fi
+
+#flathub
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 #Fritz!Box
 read -p "Soll das Programm Roger Router (ehemals ffgtk) für die Fritz!Box installiert werden? Dann drücke j!"
