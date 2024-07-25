@@ -49,7 +49,6 @@ then
 	fi
 fi
 
-
 if [ "$1" = "" ] || [ "$1" = "rep" ]
 then
 #Kopiere bei Bedarf Firefox, Chromium und gajim Einstellungen
@@ -66,7 +65,7 @@ then
 	sudo mv $config/.local/share/applications/dayon_assistant.desktop /home/$i/.local/share/applications/
 	
 	#kdeconnect-cinnamon
-	if [ cinnamon-kdeconnect=true ]
+	if [ cinnamon-kdeconnect==true ]
 	then
 		if [ ! -d /home/$i/.config/cinnamon/spices/kdecapplet@joejoetv ] 
 		then
