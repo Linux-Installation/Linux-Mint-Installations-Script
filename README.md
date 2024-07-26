@@ -23,7 +23,6 @@ This is my post Installation script, which "automate" tasks which I do after ins
 New Flatpak Repository: [Flathub](https://flathub.org)
 #### Flatpak Packages
 - (Optional) [Roger Router](https://flathub.org/apps/details/org.tabos.roger)
-- (Optional) [ProtonUp-Qt](https://flathub.org/apps/details/net.davidotek.pupgui2)
 - (Optional) [TLPUI](https://flathub.org/apps/com.github.d4nj1.tlpui)
 
 ### Additional installed Software
