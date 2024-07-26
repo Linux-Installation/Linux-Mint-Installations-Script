@@ -288,8 +288,24 @@ then
 sudo systemctl enable $service
 fi
 sudo nala install --fix-broken -y
-sudo dpkg-reconfigure -plow unattended-upgrades
-sudo cp -f $config/50unattended-upgrades /etc/apt/apt.conf.d/50unattended-upgrades
+
+#Auto-Update
+grep "Linux Mint" /etc/issue
+if [ $? == 0 ]  
+then 
+	sudo mintupdate-automation upgrade enable
+	sudo mintupdate-automation blacklist enable
+	sudo mintupdate-automation autoremove enable
+	grep "firefox" /etc/mintupdate.blacklist
+	if [ $? != 0 ]
+	then
+		sudo su -c 'firefox" >> /etc/mintupdate.blacklist'
+	fi
+else
+	sudo dpkg-reconfigure -plow unattended-upgrades
+	sudo cp -f $config/50unattended-upgrades /etc/apt/apt.conf.d/50unattended-upgrades
+fi
+
 sudo cp -f $config/firefoxUpdateOnShutdown.service /etc/systemd/system/firefoxUpdateOnShutdown.service
 sudo systemctl daemon-reload
 sudo systemctl enable firefoxUpdateOnShutdown.service
