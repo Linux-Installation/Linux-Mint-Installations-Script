@@ -2,7 +2,7 @@
 ## Supported Distributions
 In general all Linux Mint flavours should work, but this script was made for Linux Mint Cinnamon.  
 This script is not testet with LMDE! For LMDE you can use [this](https://github.com/Linux-Installation/LMDE-Installations-Script) script, which admittedly isn't maintained as well as this one.  
-Some Parts of this script works for Ubuntu, but some parts will throw errors... I don't recommend using it with Ubuntu!
+Despite th intended effects of this script can only be reached, the script should be work on Ubuntu, too.
 
 ## Why
 This is my post Installation script, which "automate" tasks which I do after installing Linux Mint.
