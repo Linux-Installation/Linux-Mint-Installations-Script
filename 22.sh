@@ -299,7 +299,7 @@ then
 	grep "firefox" /etc/mintupdate.blacklist
 	if [ $? != 0 ]
 	then
-		sudo su -c 'firefox" >> /etc/mintupdate.blacklist'
+		sudo su -c 'echo "firefox" >> /etc/mintupdate.blacklist'
 	fi
 else
 	sudo dpkg-reconfigure -plow unattended-upgrades
