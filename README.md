@@ -1,5 +1,5 @@
 # Linux Mint Installation - Installations Script
-## Suported Distributions
+## Supported Distributions
 In general all Linux Mint flavours should work, but this script was made for Linux Mint Cinnamon.  
 This script is not testet with LMDE! For LMDE you can use [this](https://github.com/Linux-Installation/LMDE-Installations-Script) script, which admittedly isn't maintained as well as this one.  
 Some Parts of this script works for Ubuntu, but some parts will throw errors... I don't recommend using it with Ubuntu!
