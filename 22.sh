@@ -63,7 +63,7 @@ then
 	sudo cp -rf $config/.dayon /home/$i
 	#hide Dayon Assistant and Matrix - Avoiding confusion with Dayon Assisted and Element Desktop
 	sudo mkdir -p /home/$i/.local/share/applications
-	sudo mv $config/.local/share/applications/* /home/$i/.local/share/applications/
+	sudo cp -f $config/.local/share/applications/* /home/$i/.local/share/applications/
 	
 	#kdeconnect-cinnamon
 	if [ cinnamon-kdeconnect==true ]
