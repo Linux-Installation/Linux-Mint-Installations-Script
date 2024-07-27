@@ -238,7 +238,7 @@ fi
 #fi
 
 paketerec="digikam exiv2 kipi-plugins graphicsmagick-imagemagick-compat hw-probe"
-pakete=`echo "$pakete synaptic krita krita-l10n ubuntu-restricted-extras pidgin nfs-common language-pack-kde-de libdvd-pkg smartmontools unoconv mediathekview python3-axolotl python3-gnupg language-pack-de fonts-symbola vlc libxvidcore4 libfaac0 gnupg2 lutris dayon kate konsole element-desktop redshift-gtk qpwgraph"`
+pakete=`echo "$pakete synaptic krita krita-l10n ubuntu-restricted-extras pidgin nfs-common language-pack-kde-de libdvd-pkg smartmontools unoconv mediathekview python3-axolotl python3-gnupg language-pack-de fonts-symbola vlc libxvidcore4 libfaac0 gnupg2 lutris dayon kate konsole element-desktop redshift-gtk qpwgraph kasts"`
 #remove=`echo "$remove"`
 
 #sudo snap remove firefox
