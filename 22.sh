@@ -165,8 +165,37 @@ then
 	sudo mkdir -p /home/$i/.config/autostart/
 	sudo cp -rf $config/.config/autostart/* /home/$i/.config/autostart/*
 	sudo chown -R $i:$i /home/$i	
-fi
-done
+	
+	#cinnamon download
+	if [ ! -d /home/$i/.local/share/cinnamon/applets/CinnVIIStarkMenu@NikoKrause ]
+	then
+		#echo $dir
+		sudo mkdir -p /home/$i/.local/share/cinnamon/applets/
+		sudo cp -rf $config/.local/share/cinnamon/applets/CinnVIIStarkMenu@NikoKrause /home/$i/.local/share/cinnamon/applets/								 
+	fi	
+	fi
+	done
+	#cinnamon config
+    declare dir=~/.config/cinnamon/spices
+	if [ find ~/.config/ -name cinnamon -mmin +0 ] 
+	then
+		read -p "Das Verzeichnis .config/cinnamon/spices existiert schon, soll es überschrieben werden? Dann drücke j!"
+	#	echo    # (optional) move to a new line
+		if [[ ! $REPLY =~ ^[Jj]$ ]]
+		then
+			echo "kopiere .config/cinnamon/spices nicht"
+		else
+		    overwriteCinnamon=true
+		    rm -rf $dir
+		fi
+	fi
+	if [ ! -d $dir ] || [ overwriteCinnamon==true ]
+	then
+		#echo $dir
+		mkdir -p $dir
+		cp -rf $config/.config/cinnamon/spices/* ~/.config/cinnamon/spices/*
+		dconf load /org/cinnamon/ < $config/cinnamon-stock.conf
+	fi	
 fi
 #Gaming on AMD/Intel
 read -p "Möchtest du Games spielen und hast eine AMD/Intel Grafikkarte? Dann drücke j!"

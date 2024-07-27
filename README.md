@@ -59,7 +59,7 @@ New Flatpak Repository: [Flathub](https://flathub.org)
 
 ### Additional installed Cinnamon Applets
 - (Optional) [KDE Connect Applet](https://cinnamon-spices.linuxmint.com/applets/view/334)
-
+- [CinnVIIStarkMenu](https://cinnamon-spices.linuxmint.com/applets/view/281)
 
 ### other
 At the end of the script hardware probe will anonymously collect hardware details of the computers (devices information and depersonalized system logs) for helping people to collaboratively debug hardware related issues, check for Linux-compatibility and find drivers. For more Informations look here: https://linux-hardware.org/
