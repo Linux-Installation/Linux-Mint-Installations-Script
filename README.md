@@ -57,6 +57,10 @@ New Flatpak Repository: [Flathub](https://flathub.org)
 - [qpwgraph](https://github.com/rncbc/qpwgraph)
 - [kasts](https://apps.kde.org/de/kasts/)
 
+### Additional installed Cinnamon Applets
+- (Optional) [KDE Connect Applet](https://cinnamon-spices.linuxmint.com/applets/view/334)
+
+
 ### other
 At the end of the script hardware probe will anonymously collect hardware details of the computers (devices information and depersonalized system logs) for helping people to collaboratively debug hardware related issues, check for Linux-compatibility and find drivers. For more Informations look here: https://linux-hardware.org/
 
