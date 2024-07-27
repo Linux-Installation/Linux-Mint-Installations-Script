@@ -172,12 +172,12 @@ then
 		sudo mkdir -p /home/$i/.local/share/cinnamon/applets/
 		sudo cp -rf $config/.local/share/cinnamon/applets/CinnVIIStarkMenu@NikoKrause /home/$i/.local/share/cinnamon/applets/								 
 	fi	
-    sudo chown -R $i:$i /home/$i	
+	sudo chown -R $i:$i /home/$i	
 	fi
 	done
 	#cinnamon config
     declare dir=~/.config/cinnamon/spices
-	if [ find ~/.config/ -name cinnamon -mmin +0 ] 
+	if [ find ~/.config/ -name cinnamon -mtime +0 ] 
 	then
 		read -p "Das Verzeichnis .config/cinnamon/spices existiert schon, soll es überschrieben werden? Dann drücke j!"
 	#	echo    # (optional) move to a new line
@@ -189,7 +189,7 @@ then
 		    rm -rf $dir
 		fi
 	fi
-	if [ ! -d $dir ] || [ overwriteCinnamon==true ]
+	if [ find ~/.config/ -name cinnamon -mtime +0 ] || [ overwriteCinnamon==true ]
 	then
 		#echo $dir
 		mkdir -p $dir
