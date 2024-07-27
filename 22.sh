@@ -164,8 +164,7 @@ then
 	#autostart
 	sudo mkdir -p /home/$i/.config/autostart/
 	sudo cp -rf $config/.config/autostart/* /home/$i/.config/autostart/*
-	sudo chown -R $i:$i /home/$i	
-	
+		
 	#cinnamon download
 	if [ ! -d /home/$i/.local/share/cinnamon/applets/CinnVIIStarkMenu@NikoKrause ]
 	then
@@ -173,6 +172,7 @@ then
 		sudo mkdir -p /home/$i/.local/share/cinnamon/applets/
 		sudo cp -rf $config/.local/share/cinnamon/applets/CinnVIIStarkMenu@NikoKrause /home/$i/.local/share/cinnamon/applets/								 
 	fi	
+    sudo chown -R $i:$i /home/$i	
 	fi
 	done
 	#cinnamon config
