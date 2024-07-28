@@ -327,7 +327,7 @@ then
 	sudo mintupdate-automation autoremove enable
 	grep "firefox" /etc/mintupdate.blacklist
 	#flatpack and cinnamon-spices autoupdates and Hiding linuxmint updates when not necessary
-	dconf load /com/linuxmint/updates/ < $config/dconf/cinnamon-stock.conf
+	dconf load /com/linuxmint/updates/ < $config/dconf/linuxmint-updates.conf
 	if [ $? != 0 ]
 	then
 		sudo su -c 'echo "firefox" >> /etc/mintupdate.blacklist'
