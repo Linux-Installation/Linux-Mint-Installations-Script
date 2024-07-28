@@ -306,6 +306,7 @@ sudo nala install -y $pakete
 sudo mv $config/usr/share/applications/dayon_assistant.desktop /usr/share/applications/
 
 sudo update-alternatives --set x-terminal-emulator /usr/bin/konsole
+dconf write /org/cinnamon/desktop/applications/terminal/exec "'konsole'"
 
 sudo dpkg-reconfigure libdvd-pkg
 
