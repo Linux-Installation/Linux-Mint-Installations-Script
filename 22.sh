@@ -197,7 +197,13 @@ then
 	then
 		#echo $dir
 		sudo mkdir -p /home/$i/.local/share/cinnamon/applets/
-		sudo cp -rf $config/.local/share/cinnamon/applets/CinnVIIStarkMenu@NikoKrause /home/$i/.local/share/cinnamon/applets/								 
+		sudo cp -rf $config/.local/share/cinnamon/applets/CinnVIIStarkMenu@NikoKrause /home/$i/.local/share/cinnamon/applets/ 
+	fi	
+	if [ ! -d /home/$i/.local/share/cinnamon/extensions/cinnamon-maximus@fmete ]
+	then
+		#echo $dir
+		sudo mkdir -p /home/$i/.local/share/cinnamon/extensions/
+		sudo cp -rf $config/.local/share/cinnamon/extensions/cinnamon-maximus@fmete /home/$i/.local/share/cinnamon/extensions/ 
 	fi	
 	sudo chown -R $i:$i /home/$i	
 	fi
@@ -222,6 +228,7 @@ then
 		mkdir -p $dir
 		cp -rf $config/.config/cinnamon/spices/* ~/.config/cinnamon/spices/*
 		dconf load /org/cinnamon/ < $config/dconf/cinnamon-stock.conf
+		dconf write /org/cinnamon/enabled-extensions "['cinnamon-maximus@fmete']"
 	fi	
 fi
 #Gaming on AMD/Intel

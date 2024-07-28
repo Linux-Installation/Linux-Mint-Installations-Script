@@ -62,6 +62,9 @@ New Flatpak Repository: [Flathub](https://flathub.org)
 - (Optional) [KDE Connect Applet](https://cinnamon-spices.linuxmint.com/applets/view/334)
 - [CinnVIIStarkMenu](https://cinnamon-spices.linuxmint.com/applets/view/281)
 
+### Additional installed Cinnamon Extensions
+- [Cinnamon Maximus](https://cinnamon-spices.linuxmint.com/extensions/view/73)
+
 ### Additional installed Nemo actions
 - [Move Into a New Folder](https://cinnamon-spices.linuxmint.com/actions/view/27)
 - [GNOME System Monitor](https://cinnamon-spices.linuxmint.com/actions/view/6)
