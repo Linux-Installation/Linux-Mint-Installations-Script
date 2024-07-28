@@ -194,7 +194,7 @@ then
 		#echo $dir
 		mkdir -p $dir
 		cp -rf $config/.config/cinnamon/spices/* ~/.config/cinnamon/spices/*
-		dconf load /org/cinnamon/ < $config/cinnamon-stock.conf
+		dconf load /org/cinnamon/ < $config/dconf/cinnamon-stock.conf
 	fi	
 fi
 #Gaming on AMD/Intel
@@ -326,6 +326,8 @@ then
 	sudo mintupdate-automation blacklist enable
 	sudo mintupdate-automation autoremove enable
 	grep "firefox" /etc/mintupdate.blacklist
+	#flatpack and cinnamon-spices autoupdates and Hiding linuxmint updates when not necessary
+	dconf load /com/linuxmint/updates/ < $config/dconf/cinnamon-stock.conf
 	if [ $? != 0 ]
 	then
 		sudo su -c 'echo "firefox" >> /etc/mintupdate.blacklist'
