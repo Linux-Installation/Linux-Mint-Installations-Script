@@ -264,7 +264,7 @@ fi
 #if [[ $REPLY =~ ^[Jj]$ ]]
 #then
 #	remove=`echo "$remove pluma*"`
-#fi
+#fi! -d $dir
 
 paketerec="digikam exiv2 kipi-plugins graphicsmagick-imagemagick-compat hw-probe"
 pakete=`echo "$pakete synaptic krita krita-l10n ubuntu-restricted-extras pidgin nfs-common language-pack-kde-de libdvd-pkg smartmontools unoconv mediathekview python3-axolotl python3-gnupg language-pack-de fonts-symbola vlc libxvidcore4 libfaac0 gnupg2 lutris dayon kate konsole element-desktop redshift-gtk qpwgraph kasts"`
@@ -345,6 +345,21 @@ fi
 sudo cp -f $config/firefoxUpdateOnShutdown.service /etc/systemd/system/firefoxUpdateOnShutdown.service
 sudo systemctl daemon-reload
 sudo systemctl enable firefoxUpdateOnShutdown.service
+
+#Enable guest user
+declare file=/etc/lightdm/lightdm.conf
+if [ -f $file ] 
+then
+	grep "allow-guest=" /etc/lightdm/lightdm.conf
+	if [ $? == 0 ]  
+	then 
+		sudo sed -i 's/^.*allow-guest=.*$/allow-guest=true/' /etc/lightdm/lightdm.conf
+	else
+		echo "/etc/lightdm/lightdm.conf exists but allow-guest not. To prevent messing up things I do nothing."
+	fi
+else
+	sudo cp $config/etc/lightdm/lightdm.conf /etc/lightdm/
+fi
 
 #Hardware probe
 sudo -E hw-probe -all -upload
