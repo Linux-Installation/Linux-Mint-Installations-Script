@@ -56,6 +56,7 @@ New Flatpak Repository: [Flathub](https://flathub.org)
 - [nala](https://gitlab.com/volian/nala)
 - [qpwgraph](https://github.com/rncbc/qpwgraph)
 - [kasts](https://apps.kde.org/de/kasts/)
+- [meld](https://meldmerge.org/)
 
 ### Additional installed Cinnamon Applets
 - (Optional) [KDE Connect Applet](https://cinnamon-spices.linuxmint.com/applets/view/334)
