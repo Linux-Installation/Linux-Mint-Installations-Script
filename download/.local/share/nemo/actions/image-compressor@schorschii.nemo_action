@@ -1,0 +1,41 @@
+[Nemo Action]
+
+Name=Compress images
+Name[ca]=Comprimeix imatges
+Name[cs]=Komprese obrázků
+Name[de]=Bilder komprimieren
+Name[el]=Συμπίεση εικόνων
+Name[es]=Comprimir imágenes
+Name[fi]=Tiivistä kuvat
+Name[fr]=Compresser les images
+Name[hr]=Sažmi slike
+Name[hu]=Képek tömörítése
+Name[it]=Comprimi immagini
+Name[nl]=Comprimeer afbeeldingen
+Name[pt_BR]=Compactar imagens
+Name[sv]=Komprimera bilder
+Name[tr]=Görüntüleri sıkıştır
+Name[zh_CN]=压缩图片
+Comment=Compresses the selected images and saves it with suffix '_converted' (e.g. for sending them via email)
+Comment[ca]=Comprimeix les imatges seleccionades i les guarda amb el sufix '_converted' (per exemple, per enviar-les per correu)
+Comment[cs]=Zkomprimuje vybrané obrázky a uloží je s příponou '_converted' (např. pro odeslání e-mailem).
+Comment[el]=Συμπιέζει τις επιλεγμένες εικόνες και τις αποθηκεύει με την κατάληξη '_converted' (π.χ. για την αποστολή τους μέσω email)
+Comment[es]=Comprimir las imágenes seleccionadas y guardarlas con el sufijo '_converted' (por ejemplo, para enviarlas por correo electrónico)
+Comment[fi]=Tiivistää valitut kuvat ja tallentaa ne päätteellä '_converted' (jopa kolmasosa alkuperäisestä)
+Comment[fr]=Compresse les images sélectionnées et les sauvegarde avec le suffix "_converted" (par ex. pour les envoyer par mail)
+Comment[hr]=Sažima odabrane slike i sprema ih s dodatkom '_converted' (za npr. slanje putem e-pošte)
+Comment[hu]=Tömöríti a kiválasztott képeket és elmenti "_converted" utótaggal (például e-mailben történő elküldéshez)
+Comment[it]=Comprime le immagini selezionate e le salva con il suffisso '_converted' (ad esempio per inviarle via email)
+Comment[nl]=Comprimeert de geselecteerde afbeeldingen en slaat ze op met de toevoeging '_converted' (bv. voor verzending via e-mail)
+Comment[pt_BR]=Compacta as imagens selecionadas e as salva com o sufixo '_converted' (por exemplo, para enviá-las por e-mail)
+Comment[sv]=Komprimerar valda bilder och sparar dem suffixet "_converted" (t.ex. för att skicka dem via e-post)
+Comment[zh_CN]=压缩所选图像并使用后缀“_converted”保存（例如，通过电子邮件发送）
+Icon-Name=imagemagick
+
+Exec=<image-compressor@schorschii/compress-images.py %U>
+
+Mimetypes=image/*;
+Selection=notnone
+
+Dependencies=python3;
+#python3-pil;python3-wxgtk4.0;

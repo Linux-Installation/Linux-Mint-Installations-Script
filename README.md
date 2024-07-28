@@ -62,6 +62,14 @@ New Flatpak Repository: [Flathub](https://flathub.org)
 - (Optional) [KDE Connect Applet](https://cinnamon-spices.linuxmint.com/applets/view/334)
 - [CinnVIIStarkMenu](https://cinnamon-spices.linuxmint.com/applets/view/281)
 
+### Additional installed Nemo actions
+- [Move Into a New Folder](https://cinnamon-spices.linuxmint.com/actions/view/27)
+- [GNOME System Monitor](https://cinnamon-spices.linuxmint.com/actions/view/6)
+- [Send as Attachment](https://cinnamon-spices.linuxmint.com/actions/view/2)
+- [Send with KDE Connect](https://cinnamon-spices.linuxmint.com/actions/view/5)
+- [Open in Remote Terminal](https://cinnamon-spices.linuxmint.com/actions/view/21)
+- [File shredder](https://cinnamon-spices.linuxmint.com/actions/view/31)
+
 ### other
 At the end of the script hardware probe will anonymously collect hardware details of the computers (devices information and depersonalized system logs) for helping people to collaboratively debug hardware related issues, check for Linux-compatibility and find drivers. For more Informations look here: https://linux-hardware.org/
 

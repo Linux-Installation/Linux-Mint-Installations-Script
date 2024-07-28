@@ -79,6 +79,33 @@ then
 			sudo cp -rf $config/.local/share/cinnamon/applets/kdecapplet@joejoetv /home/$i/.local/share/cinnamon/applets/
 		fi
 	fi
+	#nemo-actions
+	declare file=/home/$i/.config/nemo/actions-tree.json
+	if [ -f $file ] 
+	then
+		read -p "Die Datei .config/nemo/actions-tree.json existiert schon, soll sie überschrieben werden? Dann drücke j!"
+	#	echo    # (optional) move to a new line
+		if [[ ! $REPLY =~ ^[Jj]$ ]]
+		then
+			echo "kopiere .config/nemo/actions-tree.json nicht"
+		else
+		    overwriteNemo=true
+		    sudo rm -f $file
+		fi
+	fi
+	if [ ! -d $dir ] || [ overwriteNemo==true ]
+	then
+		#echo $dir
+		sudo mkdir -p /home/$i/.config/nemo/
+		sudo cp -f $config/.config/nemo/actions-tree.json /home/$i/.config/nemo/
+		echo $LANG | grep de_
+		if [ $? != 0 ] 
+		then
+			sed -i -e 's/Senden an/send to/g' neueDatei
+		fi
+	fi	
+	sudo cp $config/.local/share/nemo/actions/* /home/$i/.local/share/nemo/actions/
+	
 	#gajim
 	declare dir=/home/$i/.config/gajim
 	if [ -d $dir ] 
