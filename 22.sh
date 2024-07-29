@@ -66,7 +66,7 @@ then
 	pakete=`echo "$pakete kdeconnect"`
 	if [ -f "/usr/bin/cinnamon" ] 
 	then
-		cinnamon-kdeconnect=true
+		cinnamon_kdeconnect=true
 	fi
 fi
 
@@ -86,7 +86,7 @@ then
 	sudo cp -f $config/.local/share/applications/* /home/$i/.local/share/applications/
 	
 	#kdeconnect-cinnamon
-	if [ cinnamon-kdeconnect==true ]
+	if [ cinnamon_kdeconnect==true ]
 	then
 		if [ ! -d /home/$i/.config/cinnamon/spices/kdecapplet@joejoetv ] 
 		then
