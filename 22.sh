@@ -123,7 +123,7 @@ then
 			sed -i -e 's/Senden an/send to/g' /home/$i/.config/nemo/actions-tree.json
 		fi
 	fi	
-	sudo cp $config/.local/share/nemo/actions/* /home/$i/.local/share/nemo/actions/
+	sudo cp -r $config/.local/share/nemo/actions/* /home/$i/.local/share/nemo/actions/
 	
 	#gajim
 	declare dir=/home/$i/.config/gajim
