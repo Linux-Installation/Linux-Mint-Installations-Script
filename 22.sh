@@ -6,7 +6,7 @@ service="" #be careful not fully implemented now!
 remove=""   
 
 sudo apt -y install nala
-#sudo nala fetch
+sudo nala fetch
 sudo nala full-upgrade -y
 
 export DEBIAN_FRONTEND=noninteractive
@@ -101,7 +101,7 @@ then
 		echo $LANG | grep de_
 		if [ $? != 0 ] 
 		then
-			sed -i -e 's/Senden an/send to/g' neueDatei
+			sed -i -e 's/Senden an/send to/g' /home/$i/.config/nemo/actions-tree.json
 		fi
 	fi	
 	sudo cp $config/.local/share/nemo/actions/* /home/$i/.local/share/nemo/actions/
