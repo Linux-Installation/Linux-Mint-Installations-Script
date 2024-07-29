@@ -6,40 +6,32 @@ service="" #be careful not fully implemented now!
 remove=""   
 
 # Add fastly repository
-grep fastly.linuxmint.io /etc/apt/sources.list.d/official-package-repositories.list
-if [ $? -ne 0 ]
+if grep fastly.linuxmint.io /etc/apt/sources.list.d/official-package-repositories.list
 then
-	sudo sed -i '/^deb http:\/\/packages.linuxmint.com wilma main upstream import backport\s$/ideb http:\/\/fastly.linuxmint.io wilma main upstream import backport' /etc/apt/sources.list.d/official-package-repositories.list
+	sudo sed -i '/^deb http:\/\/packages.linuxmint.com wilma main upstream import backport.*$/ideb http:\/\/fastly.linuxmint.io wilma main upstream import backport' /etc/apt/sources.list.d/official-package-repositories.list
 fi
 #Add other mirrors if timezone is Europe/Berlin
-grep Europe/Berlin /etc/timezone
-if [ $? -eq 0 ]
+if grep Europe/Berlin /etc/timezone
 then	
-	grep ftp-stud.hs-esslingen.de /etc/apt/sources.list.d/official-package-repositories.list
-	if [ $? -ne 0 ]
+	if grep ftp-stud.hs-esslingen.de /etc/apt/sources.list.d/official-package-repositories.list
 	then
-		grep -e ftp.uni-mainz.de -e ftp.rrzn.uni-hannover.de /etc/apt/sources.list.d/official-package-repositories.list
-		if [ $? -ne 0 ]
+		if grep -e ftp.uni-mainz.de -e ftp.rrzn.uni-hannover.de /etc/apt/sources.list.d/official-package-repositories.list
 		then
 			sudo sed -i '/^deb http:\/\/archive.ubuntu.com\/ubuntu noble main restricted universe multiverse$/ideb http:\/\/ftp.uni-mainz.de\/ubuntu noble main restricted universe multiverse\ndeb http:\/\/ftp.uni-mainz.de\/ubuntu noble-updates main restricted universe multiverse\ndeb http:\/\/ftp.uni-mainz.de\/ubuntu noble-backports main restricted universe multiverse\ndeb http:\/\/ftp-stud.hs-esslingen.de\/ubuntu noble main restricted universe multiverse\ndeb http:\/\/ftp-stud.hs-esslingen.de\/ubuntu noble-updates main restricted universe multiverse\ndeb http:\/\/ftp-stud.hs-esslingen.de\/ubuntu noble-backports main restricted universe multiverse\ndeb http:\/\/ftp.rrzn.uni-hannover.de\/pub\/mirror\/linux\/ubuntu noble main restricted universe multiverse\ndeb http:\/\/ftp.rrzn.uni-hannover.de\/pub\/mirror\/linux\/ubuntu noble-updates main restricted universe multiverse\ndeb http:\/\/ftp.rrzn.uni-hannover.de\/pub\/mirror\/linux\/ubuntu noble-backports main restricted universe multiverse' /etc/apt/sources.list.d/official-package-repositories.list
-
 		fi
-		grep ftp.rz.uni-frankfurt.de /etc/apt/sources.list.d/official-package-repositories.list
-		if [ $? -ne 0 ]
+		if grep ftp.rz.uni-frankfurt.de /etc/apt/sources.list.d/official-package-repositories.list
 		then
 			sudo sed -i '/^deb http:\/\/packages.linuxmint.com wilma main upstream import backport\s$/ideb https:\/\/ftp-stud.hs-esslingen.de\/pub\/Mirrors\/packages.linuxmint.com wilma main upstream import backport\ndeb https:\/\/ftp.rz.uni-frankfurt.de\/pub\/mirrors\/linux-mint\/packages wilma main upstream import backport' /etc/apt/sources.list.d/official-package-repositories.list
 		fi
 	fi
 fi
-
 sudo apt-get update
 sudo apt -y install nala
 #sudo nala fetch
 sudo nala full-upgrade -y
 
 export DEBIAN_FRONTEND=noninteractive
-grep Wilma /etc/issue
-if [ $? -ne 0 ]  
+if grep Wilma /etc/issue
 then 
 	read -p "Du benutzt kein Linux Mint der Version 22! Wenn du das Script trotzdem fortsetzen möchtest drücke j!"
 	echo    # (optional) move to a new line
@@ -126,8 +118,7 @@ then
 		#echo $dir
 		sudo mkdir -p /home/$i/.config/nemo/
 		sudo cp -f $config/.config/nemo/actions-tree.json /home/$i/.config/nemo/
-		echo $LANG | grep de_
-		if [ $? != 0 ] 
+		if grep de_ <<< $LANG
 		then
 			sed -i -e 's/Senden an/send to/g' /home/$i/.config/nemo/actions-tree.json
 		fi
@@ -342,7 +333,6 @@ sudo wget -O /usr/share/keyrings/element-io-archive-keyring.gpg https://packages
 echo "deb [signed-by=/usr/share/keyrings/element-io-archive-keyring.gpg] https://packages.element.io/debian/ default main" | sudo tee /etc/apt/sources.list.d/element-io.list
 
 sudo add-apt-repository -y ppa:regal/dayon
-
 #no 22.04 yet
 #sudo add-apt-repository -y ppa:webupd8team/y-ppa-manager
 
@@ -387,19 +377,17 @@ fi
 sudo nala install --fix-broken -y
 
 #Auto-Update
-grep "Linux Mint" /etc/issue
-if [ $? -eq 0 ]  
+if grep "Linux Mint" /etc/issue
 then 
 	sudo mintupdate-automation upgrade enable
 	sudo mintupdate-automation blacklist enable
-	sudo mintupdate-automation autoremove enable
-	grep "firefox" /etc/mintupdate.blacklist
-	#flatpack and cinnamon-spices autoupdates and Hiding linuxmint updates when not necessary
-	dconf load /com/linuxmint/updates/ < $config/dconf/linuxmint-updates.conf
-	if [ $? != 0 ]
+	if grep "firefox" /etc/mintupdate.blacklist
 	then
 		sudo su -c 'echo "firefox" >> /etc/mintupdate.blacklist'
 	fi
+	sudo mintupdate-automation autoremove enable
+	#flatpack and cinnamon-spices autoupdates and Hiding linuxmint updates when not necessary
+	dconf load /com/linuxmint/updates/ < $config/dconf/linuxmint-updates.conf
 else
 	sudo dpkg-reconfigure -plow unattended-upgrades
 	sudo cp -f $config/50unattended-upgrades /etc/apt/apt.conf.d/50unattended-upgrades
@@ -413,8 +401,7 @@ sudo systemctl enable firefoxUpdateOnShutdown.service
 declare file=/etc/lightdm/lightdm.conf
 if [ -f $file ] 
 then
-	grep "allow-guest=" /etc/lightdm/lightdm.conf
-	if [ $? == 0 ]  
+	if grep "allow-guest=" /etc/lightdm/lightdm.conf
 	then 
 		sudo sed -i 's/^.*allow-guest=.*$/allow-guest=true/' /etc/lightdm/lightdm.conf
 	else
