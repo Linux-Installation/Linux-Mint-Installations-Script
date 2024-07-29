@@ -21,7 +21,7 @@ then
 		fi
 		if ! grep ftp.rz.uni-frankfurt.de /etc/apt/sources.list.d/official-package-repositories.list
 		then
-			sudo sed -i '/^deb http:\/\/packages.linuxmint.com wilma main upstream import backport\s$/ideb https:\/\/ftp-stud.hs-esslingen.de\/pub\/Mirrors\/packages.linuxmint.com wilma main upstream import backport\ndeb https:\/\/ftp.rz.uni-frankfurt.de\/pub\/mirrors\/linux-mint\/packages wilma main upstream import backport' /etc/apt/sources.list.d/official-package-repositories.list
+			sudo sed -i '/^deb http:\/\/packages.linuxmint.com wilma main upstream import backport.*$/ideb https:\/\/ftp-stud.hs-esslingen.de\/pub\/Mirrors\/packages.linuxmint.com wilma main upstream import backport\ndeb https:\/\/ftp.rz.uni-frankfurt.de\/pub\/mirrors\/linux-mint\/packages wilma main upstream import backport' /etc/apt/sources.list.d/official-package-repositories.list
 		fi
 	fi
 fi
