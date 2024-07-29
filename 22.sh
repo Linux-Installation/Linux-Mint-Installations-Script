@@ -6,22 +6,40 @@ service="" #be careful not fully implemented now!
 remove=""   
 
 # Add fastly repository
-sudo sed -i '/^deb http:\/\/packages.linuxmint.com wilma main upstream import backport\s$/ideb http:\/\/fastly.linuxmint.io wilma main upstream import backport' /etc/apt/sources.list.d/official-package-repositories.list
+grep fastly.linuxmint.io /etc/apt/sources.list.d/official-package-repositories.list
+if [ $? -ne 0 ]
+then
+	sudo sed -i '/^deb http:\/\/packages.linuxmint.com wilma main upstream import backport\s$/ideb http:\/\/fastly.linuxmint.io wilma main upstream import backport' /etc/apt/sources.list.d/official-package-repositories.list
+fi
 #Add other mirrors if timezone is Europe/Berlin
 grep Europe/Berlin /etc/timezone
-if [ $? == 0 ]
-then
-sudo sed -i '/^deb http:\/\/archive.ubuntu.com\/ubuntu noble main restricted universe multiverse$/ideb http:\/\/ftp.uni-mainz.de\/ubuntu noble main restricted universe multiverse\ndeb http:\/\/ftp.uni-mainz.de\/ubuntu noble-updates main restricted universe multiverse\ndeb http:\/\/ftp.uni-mainz.de\/ubuntu noble-backports main restricted universe multiverse\ndeb http:\/\/ftp-stud.hs-esslingen.de\/ubuntu noble main restricted universe multiverse\ndeb http:\/\/ftp-stud.hs-esslingen.de\/ubuntu noble-updates main restricted universe multiverse\ndeb http:\/\/ftp-stud.hs-esslingen.de\/ubuntu noble-backports main restricted universe multiverse\ndeb http:\/\/ftp.rrzn.uni-hannover.de\/pub\/mirror\/linux\/ubuntu noble main restricted universe multiverse\ndeb http:\/\/ftp.rrzn.uni-hannover.de\/pub\/mirror\/linux\/ubuntu noble-updates main restricted universe multiverse\ndeb http:\/\/ftp.rrzn.uni-hannover.de\/pub\/mirror\/linux\/ubuntu noble-backports main restricted universe multiverse' /etc/apt/sources.list.d/official-package-repositories.list
-sudo sed -i '/^deb http:\/\/packages.linuxmint.com wilma main upstream import backport\s$/ideb https:\/\/ftp-stud.hs-esslingen.de\/pub\/Mirrors\/packages.linuxmint.com wilma main upstream import backport\ndeb https:\/\/ftp.rz.uni-frankfurt.de\/pub\/mirrors\/linux-mint\/packages wilma main upstream import backport' /etc/apt/sources.list.d/official-package-repositories.list
+if [ $? -eq 0 ]
+then	
+	grep ftp-stud.hs-esslingen.de /etc/apt/sources.list.d/official-package-repositories.list
+	if [ $? -ne 0 ]
+	then
+		grep -e ftp.uni-mainz.de -e ftp.rrzn.uni-hannover.de /etc/apt/sources.list.d/official-package-repositories.list
+		if [ $? -ne 0 ]
+		then
+			sudo sed -i '/^deb http:\/\/archive.ubuntu.com\/ubuntu noble main restricted universe multiverse$/ideb http:\/\/ftp.uni-mainz.de\/ubuntu noble main restricted universe multiverse\ndeb http:\/\/ftp.uni-mainz.de\/ubuntu noble-updates main restricted universe multiverse\ndeb http:\/\/ftp.uni-mainz.de\/ubuntu noble-backports main restricted universe multiverse\ndeb http:\/\/ftp-stud.hs-esslingen.de\/ubuntu noble main restricted universe multiverse\ndeb http:\/\/ftp-stud.hs-esslingen.de\/ubuntu noble-updates main restricted universe multiverse\ndeb http:\/\/ftp-stud.hs-esslingen.de\/ubuntu noble-backports main restricted universe multiverse\ndeb http:\/\/ftp.rrzn.uni-hannover.de\/pub\/mirror\/linux\/ubuntu noble main restricted universe multiverse\ndeb http:\/\/ftp.rrzn.uni-hannover.de\/pub\/mirror\/linux\/ubuntu noble-updates main restricted universe multiverse\ndeb http:\/\/ftp.rrzn.uni-hannover.de\/pub\/mirror\/linux\/ubuntu noble-backports main restricted universe multiverse' /etc/apt/sources.list.d/official-package-repositories.list
+
+		fi
+		grep ftp.rz.uni-frankfurt.de /etc/apt/sources.list.d/official-package-repositories.list
+		if [ $? -ne 0 ]
+		then
+			sudo sed -i '/^deb http:\/\/packages.linuxmint.com wilma main upstream import backport\s$/ideb https:\/\/ftp-stud.hs-esslingen.de\/pub\/Mirrors\/packages.linuxmint.com wilma main upstream import backport\ndeb https:\/\/ftp.rz.uni-frankfurt.de\/pub\/mirrors\/linux-mint\/packages wilma main upstream import backport' /etc/apt/sources.list.d/official-package-repositories.list
+		fi
+	fi
 fi
 
+sudo apt-get update
 sudo apt -y install nala
 #sudo nala fetch
 sudo nala full-upgrade -y
 
 export DEBIAN_FRONTEND=noninteractive
 grep Wilma /etc/issue
-if [ $? != 0 ]  
+if [ $? -ne 0 ]  
 then 
 	read -p "Du benutzt kein Linux Mint der Version 22! Wenn du das Script trotzdem fortsetzen möchtest drücke j!"
 	echo    # (optional) move to a new line
@@ -370,7 +388,7 @@ sudo nala install --fix-broken -y
 
 #Auto-Update
 grep "Linux Mint" /etc/issue
-if [ $? == 0 ]  
+if [ $? -eq 0 ]  
 then 
 	sudo mintupdate-automation upgrade enable
 	sudo mintupdate-automation blacklist enable
