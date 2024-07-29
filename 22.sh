@@ -6,20 +6,20 @@ service="" #be careful not fully implemented now!
 remove=""   
 
 # Add fastly repository
-if grep fastly.linuxmint.io /etc/apt/sources.list.d/official-package-repositories.list
+if ! grep fastly.linuxmint.io /etc/apt/sources.list.d/official-package-repositories.list
 then
 	sudo sed -i '/^deb http:\/\/packages.linuxmint.com wilma main upstream import backport.*$/ideb http:\/\/fastly.linuxmint.io wilma main upstream import backport' /etc/apt/sources.list.d/official-package-repositories.list
 fi
 #Add other mirrors if timezone is Europe/Berlin
 if grep Europe/Berlin /etc/timezone
 then	
-	if grep ftp-stud.hs-esslingen.de /etc/apt/sources.list.d/official-package-repositories.list
+	if ! grep ftp-stud.hs-esslingen.de /etc/apt/sources.list.d/official-package-repositories.list
 	then
-		if grep -e ftp.uni-mainz.de -e ftp.rrzn.uni-hannover.de /etc/apt/sources.list.d/official-package-repositories.list
+		if ! grep -e ftp.uni-mainz.de -e ftp.rrzn.uni-hannover.de /etc/apt/sources.list.d/official-package-repositories.list
 		then
 			sudo sed -i '/^deb http:\/\/archive.ubuntu.com\/ubuntu noble main restricted universe multiverse$/ideb http:\/\/ftp.uni-mainz.de\/ubuntu noble main restricted universe multiverse\ndeb http:\/\/ftp.uni-mainz.de\/ubuntu noble-updates main restricted universe multiverse\ndeb http:\/\/ftp.uni-mainz.de\/ubuntu noble-backports main restricted universe multiverse\ndeb http:\/\/ftp-stud.hs-esslingen.de\/ubuntu noble main restricted universe multiverse\ndeb http:\/\/ftp-stud.hs-esslingen.de\/ubuntu noble-updates main restricted universe multiverse\ndeb http:\/\/ftp-stud.hs-esslingen.de\/ubuntu noble-backports main restricted universe multiverse\ndeb http:\/\/ftp.rrzn.uni-hannover.de\/pub\/mirror\/linux\/ubuntu noble main restricted universe multiverse\ndeb http:\/\/ftp.rrzn.uni-hannover.de\/pub\/mirror\/linux\/ubuntu noble-updates main restricted universe multiverse\ndeb http:\/\/ftp.rrzn.uni-hannover.de\/pub\/mirror\/linux\/ubuntu noble-backports main restricted universe multiverse' /etc/apt/sources.list.d/official-package-repositories.list
 		fi
-		if grep ftp.rz.uni-frankfurt.de /etc/apt/sources.list.d/official-package-repositories.list
+		if ! grep ftp.rz.uni-frankfurt.de /etc/apt/sources.list.d/official-package-repositories.list
 		then
 			sudo sed -i '/^deb http:\/\/packages.linuxmint.com wilma main upstream import backport\s$/ideb https:\/\/ftp-stud.hs-esslingen.de\/pub\/Mirrors\/packages.linuxmint.com wilma main upstream import backport\ndeb https:\/\/ftp.rz.uni-frankfurt.de\/pub\/mirrors\/linux-mint\/packages wilma main upstream import backport' /etc/apt/sources.list.d/official-package-repositories.list
 		fi
@@ -31,7 +31,7 @@ sudo apt -y install nala
 sudo nala full-upgrade -y
 
 export DEBIAN_FRONTEND=noninteractive
-if grep Wilma /etc/issue
+if ! grep Wilma /etc/issue
 then 
 	read -p "Du benutzt kein Linux Mint der Version 22! Wenn du das Script trotzdem fortsetzen möchtest drücke j!"
 	echo    # (optional) move to a new line
@@ -118,7 +118,7 @@ then
 		#echo $dir
 		sudo mkdir -p /home/$i/.config/nemo/
 		sudo cp -f $config/.config/nemo/actions-tree.json /home/$i/.config/nemo/
-		if grep de_ <<< $LANG
+		if ! grep de_ <<< $LANG
 		then
 			sed -i -e 's/Senden an/send to/g' /home/$i/.config/nemo/actions-tree.json
 		fi
@@ -381,7 +381,7 @@ if grep "Linux Mint" /etc/issue
 then 
 	sudo mintupdate-automation upgrade enable
 	sudo mintupdate-automation blacklist enable
-	if grep "firefox" /etc/mintupdate.blacklist
+	if ! grep "firefox" /etc/mintupdate.blacklist
 	then
 		sudo su -c 'echo "firefox" >> /etc/mintupdate.blacklist'
 	fi
