@@ -5,8 +5,19 @@ pakete=""
 service="" #be careful not fully implemented now!
 remove=""   
 
+# Add fastly repository
+sudo sed -i '/^deb http:\/\/packages.linuxmint.com wilma main upstream import backport\s$/ideb http:\/\/fastly.linuxmint.io wilma main upstream import backport' /etc/apt/sources.list.d/official-package-repositories.list
+#Add other mirrors if timezone is Europe/Berlin
+grep Europe/Berlin /etc/timezone
+if [ $? != 0 ]
+then
+sudo sed -i '/^deb http:\/\/archive.ubuntu.com\/ubuntu noble main restricted universe multiverse$/ideb http:\/\/ftp.uni-mainz.de\/ubuntu noble main restricted universe multiverse\ndeb http:\/\/ftp.uni-mainz.de\/ubuntu noble-updates main restricted universe multiverse\ndeb http:\/\/ftp.uni-mainz.de\/ubuntu noble-backports main restricted universe multiverse' /etc/apt/sources.list.d/official-package-repositories.list
+sudo sed -i '/^deb http:\/\/archive.ubuntu.com\/ubuntu noble main restricted universe multiverse$/ideb http:\/\/ftp-stud.hs-esslingen.de\/ubuntu noble main restricted universe multiverse\ndeb http:\/\/ftp-stud.hs-esslingen.de\/ubuntu noble-updates main restricted universe multiverse\ndeb http:\/\/ftp-stud.hs-esslingen.de\/ubuntu noble-backports main restricted universe multiverse' /etc/apt/sources.list.d/official-package-repositories.list
+sudo sed -i '/^deb http:\/\/archive.ubuntu.com\/ubuntu noble main restricted universe multiverse$/ideb http:\/\/ftp.rrzn.uni-hannover.de\/pub\/mirror\/linux\/ubuntu noble main restricted universe multiverse\ndeb http:\/\/ftp.rrzn.uni-hannover.de\/pub\/mirror\/linux\/ubuntu noble-updates main restricted universe multiverse\ndeb http:\/\/ftp.rrzn.uni-hannover.de\/pub\/mirror\/linux\/ubuntu noble-backports main restricted universe multiverse' /etc/apt/sources.list.d/official-package-repositories.list
+fi
+
 sudo apt -y install nala
-sudo nala fetch
+#sudo nala fetch
 sudo nala full-upgrade -y
 
 export DEBIAN_FRONTEND=noninteractive
