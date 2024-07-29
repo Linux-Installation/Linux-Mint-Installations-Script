@@ -229,7 +229,7 @@ then
 	done
 	#cinnamon config
     declare dir=~/.config/cinnamon/spices
-	if [ find ~/.config/ -name cinnamon -mtime +0 ] 
+	if find ~/.config/ -name cinnamon -mtime +0 ] 
 	then
 		read -p "Das Verzeichnis .config/cinnamon/spices existiert schon, soll es überschrieben werden? Dann drücke j!"
 	#	echo    # (optional) move to a new line
@@ -241,11 +241,11 @@ then
 		    rm -rf $dir
 		fi
 	fi
-	if [ find ~/.config/ -name cinnamon -mtime +0 ] || [ overwriteCinnamon==true ]
+	if find ~/.config/ -name cinnamon -mtime +0 ] || [ overwriteCinnamon==true ]
 	then
 		#echo $dir
 		mkdir -p $dir
-		cp -rf $config/.config/cinnamon/spices/* ~/.config/cinnamon/spices/*
+		cp -rf $config/.config/cinnamon/spices/* ~/.config/cinnamon/spices/
 		dconf load /org/cinnamon/ < $config/dconf/cinnamon-stock.conf
 		dconf write /org/cinnamon/enabled-extensions "['cinnamon-maximus@fmete']"
 	fi	
