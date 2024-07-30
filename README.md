@@ -57,6 +57,7 @@ New Flatpak Repository: [Flathub](https://flathub.org)
 - [qpwgraph](https://github.com/rncbc/qpwgraph)
 - [kasts](https://apps.kde.org/de/kasts/)
 - [meld](https://meldmerge.org/)
+- [pavucontrol](https://freedesktop.org/software/pulseaudio/pavucontrol/)
 
 ### Additional installed Cinnamon Applets
 - (Optional) [KDE Connect Applet](https://cinnamon-spices.linuxmint.com/applets/view/334)
