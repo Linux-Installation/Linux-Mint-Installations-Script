@@ -246,7 +246,8 @@ then
 		#echo $dir
 		mkdir -p $dir
 		cp -rf $config/.config/cinnamon/spices/* ~/.config/cinnamon/spices/
-		dconf load /org/cinnamon/ < $config/dconf/cinnamon-stock.conf
+		#dconf load /org/cinnamon/ < $config/dconf/cinnamon-stock.conf
+		dconf load /org/cinnamon/ < $config/dconf/cinnamon-ubuntumate.conf
 		dconf write /org/cinnamon/enabled-extensions "['cinnamon-maximus@fmete']"
 	fi	
 fi
