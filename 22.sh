@@ -365,6 +365,7 @@ dconf load /org/cinnamon/desktop/peripherals/touchpad/ < $config/dconf/touchpad.
 dconf load /org/nemo/desktop/ < $config/dconf/desktop.conf
 #<super>L = locking screen
 dconf load /org/cinnamon/desktop/keybindings/ < $config/dconf/keybindings.conf
+dconf write /org/cinnamon/desktop/wm/preferences/num-workspaces 2
 
 sudo dpkg-reconfigure libdvd-pkg
 
