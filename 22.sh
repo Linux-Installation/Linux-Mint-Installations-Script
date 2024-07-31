@@ -360,7 +360,6 @@ sudo mv $config/usr/share/applications/dayon_assistant.desktop /usr/share/applic
 
 sudo update-alternatives --set x-terminal-emulator /usr/bin/konsole
 dconf write /org/cinnamon/desktop/applications/terminal/exec "'konsole'"
-dconf write /org/cinnamon/desktop/peripherals/mouse/locate-pointer true
 dconf load /org/cinnamon/desktop/peripherals/touchpad/ < $config/dconf/touchpad.conf
 dconf load /org/nemo/desktop/ < $config/dconf/desktop.conf
 #<super>L = locking screen
