@@ -30,6 +30,7 @@ New Flatpak Repository: [Flathub](https://flathub.org)
 - (Optional) [Vivaldi](https://vivaldi.com/de/)-stable
 - (Optional) [Gajim](https://gajim.org/) + Plugins
 - (Optional) [Mesa for Gaming on AMD/Intel](https://github.com/ValveSoftware/Proton/wiki/Requirements#amdintel)
+- (Optional) [Evolution](https://wiki.gnome.org/Apps/Evolution)
 - [digiKam](https://www.digikam.org/)
 - [Synaptic](https://www.nongnu.org/synaptic/)
 - [Krita](https://krita.org)

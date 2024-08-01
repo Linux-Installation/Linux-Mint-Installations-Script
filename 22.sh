@@ -70,6 +70,25 @@ then
 	fi
 fi
 
+if grep de_ <<< $LANG
+then
+	string="Soll statt Evolution Thunderbird genutzt werden? Dann drücke j!"
+else
+	string="Do you want to use Thunderbird instead of Evolution? Then press j!"
+fi
+read -p $string
+if [[ ! $REPLY =~ ^[Jj]$ ]]
+then
+	pakete=`echo "$pakete evolution"`
+	sudo nala purge -y thunderbird*
+	sudo sed -i 's/^.*x-scheme-handler\/mailto=thunderbird.desktop.*$/x-scheme-handler\/mailto=org.gnome.Evolution.desktop/' $config/.config/mimeapps.list
+else
+	if grep "thunderbird" $config/.config/mimeapps.list
+	then
+	sudo sed -i 's/^.*x-scheme-handler\/mailto=thunderbird.desktop.*$/x-scheme-handler\/mailto=org.gnome.Evolution.desktop/' $config/.config/mimeapps.list
+	fi
+fi
+
 if [ "$1" = "" ] || [ "$1" = "rep" ]
 then
 #Kopiere bei Bedarf Firefox, Chromium und gajim Einstellungen
@@ -78,13 +97,14 @@ alterUser=`who | awk '{ print $1 }'`
 for i in $(ls /home); do
 if [ $i != "lost+found" ]		
 then
+	sudo mkdir -p /home/$i/.config
+	sudo cp -rf $config/.config/mimeapps.list /home/$i/.config/
     #dayon
     sudo mkdir -p /home/$i/.dayon
 	sudo cp -rf $config/.dayon /home/$i
 	#hide Dayon Assistant and Matrix - Avoiding confusion with Dayon Assisted and Element Desktop
 	sudo mkdir -p /home/$i/.local/share/applications
 	sudo cp -f $config/.local/share/applications/* /home/$i/.local/share/applications/
-	
 	#kdeconnect-cinnamon
 	if [ cinnamon_kdeconnect == true ]
 	then
