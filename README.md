@@ -31,6 +31,8 @@ New Flatpak Repository: [Flathub](https://flathub.org)
 - (Optional) [Gajim](https://gajim.org/) + Plugins
 - (Optional) [Mesa for Gaming on AMD/Intel](https://github.com/ValveSoftware/Proton/wiki/Requirements#amdintel)
 - (Optional) [Evolution](https://wiki.gnome.org/Apps/Evolution)
+- (Optional) [Nextcloud-Desktop](https://github.com/nextcloud/desktop)
+- (Optional) [Nemo-nextcloud](https://packages.ubuntu.com/noble/nemo-nextcloud)
 - [digiKam](https://www.digikam.org/)
 - [Synaptic](https://www.nongnu.org/synaptic/)
 - [Krita](https://krita.org)

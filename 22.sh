@@ -273,6 +273,21 @@ then
 		dconf write /org/cinnamon/enabled-extensions "['cinnamon-maximus@fmete']"
 	fi	
 fi
+
+#Nextcloud Desktop Client
+if grep de_ <<< $LANG
+then
+	string="Soll der Nextcloud Desktop Client installiert werden? Dann drücke j!"
+else
+	string="Do you want to install the nextcloud desktop client? Then press j!"
+fi
+read -p $string
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Jj]$ ]]
+then
+	pakete=`echo "$pakete nextcloud-desktop nemo-nextcloud"`
+fi
+
 #Gaming on AMD/Intel
 read -p "Möchtest du Games spielen und hast eine AMD/Intel Grafikkarte? Dann drücke j!"
 echo    # (optional) move to a new line
