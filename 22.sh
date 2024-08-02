@@ -82,10 +82,12 @@ then
 	pakete=`echo "$pakete evolution"`
 	sudo nala purge -y thunderbird*
 	sudo sed -i 's/^.*x-scheme-handler\/mailto=thunderbird.desktop.*$/x-scheme-handler\/mailto=org.gnome.Evolution.desktop/' $config/.config/mimeapps.list
+	sudo sed -i 's/^.*"thunderbird.desktop",.*$/"org.gnome.Evolution.desktop",/' $config/.config/cinnamon/spices/panel-launchers@cinnamon.org/18.json
 else
 	if grep "thunderbird" $config/.config/mimeapps.list
 	then
 	sudo sed -i 's/^.*x-scheme-handler\/mailto=thunderbird.desktop.*$/x-scheme-handler\/mailto=org.gnome.Evolution.desktop/' $config/.config/mimeapps.list
+	sudo sed -i 's/^.*"org.gnome.Evolution.desktop",.*$/"thunderbird.desktop",/' $config/.config/cinnamon/spices/panel-launchers@cinnamon.org/18.json
 	fi
 fi
 
