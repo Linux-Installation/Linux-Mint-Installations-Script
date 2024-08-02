@@ -288,6 +288,20 @@ then
 	pakete=`echo "$pakete nextcloud-desktop nemo-nextcloud"`
 fi
 
+#HP-lip gui
+if grep de_ <<< $LANG
+then
+	string="Möchtest du den Füllstand einens HP Druckers abnfragen können? Dann drücke j!"
+else
+	string="Do you want to control the printer ink or toner levels of a HP printer? Then press j!"
+fi
+read -p $string
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Jj]$ ]]
+then
+	pakete=`echo "$pakete hplip-gui"`
+fi
+
 #Gaming on AMD/Intel
 read -p "Möchtest du Games spielen und hast eine AMD/Intel Grafikkarte? Dann drücke j!"
 echo    # (optional) move to a new line
