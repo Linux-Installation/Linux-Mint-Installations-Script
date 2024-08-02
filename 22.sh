@@ -302,6 +302,20 @@ then
 	pakete=`echo "$pakete hplip-gui"`
 fi
 
+#MangoHud
+if grep de_ <<< $LANG
+then
+	string="Möchtest du MangoHud installieren? Dann drücke j!"
+else
+	string="Do you want install MangoHud? Then press j!"
+fi
+read -p $string
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Jj]$ ]]
+then
+	pakete=`echo "$pakete mangohud"`
+fi
+
 #Gaming on AMD/Intel
 read -p "Möchtest du Games spielen und hast eine AMD/Intel Grafikkarte? Dann drücke j!"
 echo    # (optional) move to a new line
