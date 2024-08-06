@@ -80,7 +80,7 @@ read -p $string
 if [[ ! $REPLY =~ ^[Jj]$ ]]
 then
 	pakete=`echo "$pakete evolution"`
-	sudo nala purge -y thunderbird*
+	remove=`echo "$remove thunderbird*"`
 	sudo sed -i 's/^.*x-scheme-handler\/mailto=thunderbird.desktop.*$/x-scheme-handler\/mailto=org.gnome.Evolution.desktop/' $config/.config/mimeapps.list
 	sudo sed -i 's/^.*"thunderbird.desktop",.*$/"org.gnome.Evolution.desktop",/' $config/.config/cinnamon/spices/panel-launchers@cinnamon.org/18.json
 else
@@ -387,10 +387,10 @@ fi
 
 paketerec="digikam exiv2 kipi-plugins graphicsmagick-imagemagick-compat hw-probe"
 pakete=`echo "$pakete synaptic krita krita-l10n ubuntu-restricted-extras pidgin nfs-common language-pack-kde-de libdvd-pkg smartmontools unoconv mediathekview python3-axolotl python3-gnupg language-pack-de fonts-symbola vlc libxvidcore4 libfaac0 gnupg2 lutris dayon kate konsole element-desktop redshift-gtk qpwgraph kasts meld pavucontrol"`
-#remove=`echo "$remove"`
+remove=`echo "$remove casper"`
 
 #sudo snap remove firefox
-#sudo apt remove -y $remove
+sudo nala purge -y $remove
 
 #Updaten
 cd ~/Downloads/
