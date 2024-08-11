@@ -386,7 +386,7 @@ fi
 #fi
 
 paketerec="digikam exiv2 kipi-plugins graphicsmagick-imagemagick-compat hw-probe"
-pakete=`echo "$pakete synaptic krita krita-l10n ubuntu-restricted-extras pidgin nfs-common language-pack-kde-de libdvd-pkg smartmontools unoconv mediathekview python3-axolotl python3-gnupg language-pack-de fonts-symbola vlc libxvidcore4 libfaac0 gnupg2 lutris dayon kate konsole element-desktop redshift-gtk qpwgraph kasts meld pavucontrol"`
+pakete=`echo "$pakete synaptic krita krita-l10n ubuntu-restricted-extras pidgin nfs-common language-pack-kde-de libdvd-pkg smartmontools unoconv mediathekview python3-axolotl python3-gnupg language-pack-de fonts-symbola vlc libxvidcore4 libfaac0 gnupg2 lutris dayon kate konsole element-desktop redshift-gtk qpwgraph kasts meld pavucontrol unattended-upgrades"`
 remove=`echo "$remove casper"`
 
 #sudo snap remove firefox
@@ -455,14 +455,14 @@ then
 	sudo mintupdate-automation autoremove enable
 	#flatpack and cinnamon-spices autoupdates and Hiding linuxmint updates when not necessary
 	dconf load /com/linuxmint/updates/ < $config/dconf/linuxmint-updates.conf
+	sudo cp -f $config/LM/50unattended-upgrades /etc/apt/apt.conf.d/50unattended-upgrades
 else
-	sudo dpkg-reconfigure -plow unattended-upgrades
-	sudo cp -f $config/50unattended-upgrades /etc/apt/apt.conf.d/50unattended-upgrades
+	sudo cp -f $config/non-LM/50unattended-upgrades /etc/apt/apt.conf.d/50unattended-upgrades
+	sudo cp -f $config/non-LM/firefoxUpdateOnShutdown.service /etc/systemd/system/firefoxUpdateOnShutdown.service
+	sudo systemctl daemon-reload
+	sudo systemctl enable firefoxUpdateOnShutdown.service
 fi
-
-sudo cp -f $config/firefoxUpdateOnShutdown.service /etc/systemd/system/firefoxUpdateOnShutdown.service
-sudo systemctl daemon-reload
-sudo systemctl enable firefoxUpdateOnShutdown.service
+sudo dpkg-reconfigure -plow unattended-upgrades
 
 #Enable guest user
 declare file=/etc/lightdm/lightdm.conf
