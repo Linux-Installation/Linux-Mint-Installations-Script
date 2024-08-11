@@ -1,13 +1,11 @@
-[Unit]
-Description=Update Firefox on Shutdown
-DefaultDependencies=no
-Before=shutdown.target
-# This works because it is installed in the target and will be
-#   executed before the target state is entered
-# Also consider kexec.target
+[Install]
+WantedBy=multi-user.target
 
 [Service]
-Type=oneshot
-ExecStart=apt install -y --only-upgrade firefox*
-[Install]
-WantedBy=shutdown.target
+ExecStop=sh -c 'systemctl list-jobs | grep -q "poweroff.target.*start" && apt install -y --only-upgrade firefox*'
+RemainAfterExit=true
+TimeoutStopSec=infinity
+
+[Unit]
+After=network-online.target
+Description=Update Firefox on Shutdown
