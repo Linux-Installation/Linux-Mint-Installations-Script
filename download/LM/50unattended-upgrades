@@ -29,7 +29,6 @@ Unattended-Upgrade::Package-Whitelist {
     // For more information about Python regular expressions, see
     // https://docs.python.org/3/howto/regex.html
 };
-Unattended-Upgrade::Package-Whitelist-Strict "true";
 
 // This option controls whether the development release of Ubuntu will be
 // upgraded automatically. Valid values are "true", "false", and "auto".
