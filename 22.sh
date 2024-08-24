@@ -76,7 +76,7 @@ then
 else
 	string="Do you want to use Thunderbird instead of Evolution? Then press j!"
 fi
-read -p $string
+read -p "$string"
 if [[ ! $REPLY =~ ^[Jj]$ ]]
 then
 	pakete=`echo "$pakete evolution"`
@@ -281,7 +281,7 @@ then
 else
 	string="Do you want to install the nextcloud desktop client? Then press j!"
 fi
-read -p $string
+read -p "$string"
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Jj]$ ]]
 then
@@ -295,7 +295,7 @@ then
 else
 	string="Do you want to control the printer ink or toner levels of a HP printer? Then press j!"
 fi
-read -p $string
+read -p "$string"
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Jj]$ ]]
 then
@@ -309,7 +309,7 @@ then
 else
 	string="Do you want install MangoHud? Then press j!"
 fi
-read -p $string
+read -p "$string"
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Jj]$ ]]
 then
