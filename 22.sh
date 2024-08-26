@@ -107,6 +107,13 @@ then
 	#hide Dayon Assistant and Matrix - Avoiding confusion with Dayon Assisted and Element Desktop
 	sudo mkdir -p /home/$i/.local/share/applications
 	sudo cp -f $config/.local/share/applications/* /home/$i/.local/share/applications/
+	
+	if [ ! -f /home/$i/.config/Element/config.json ] 
+	then
+		sudo mkdir -p /home/$i/.config/Element
+		sudo cp -f $config/.config/Element/config.json /home/$i/.config/Element/
+	fi	
+	
 	#kdeconnect-cinnamon
 	if [ cinnamon_kdeconnect == true ]
 	then
