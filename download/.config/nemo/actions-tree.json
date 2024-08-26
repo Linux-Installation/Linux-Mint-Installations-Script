@@ -1,0 +1,138 @@
+{
+  "toplevel": [
+    {
+      "uuid": "92_show-expo.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "Senden an",
+      "type": "submenu",
+      "user-label": "Senden an",
+      "user-icon": null,
+      "children": [
+        {
+          "uuid": "send-with-kdeconnect@rcalixte.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
+        {
+          "uuid": "send-as-attachment@rcalixte.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
+        {
+          "uuid": "warpinator-send.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
+        {
+          "uuid": "send-via-bluetooth@asgharalitaj.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        }
+      ]
+    },
+    {
+      "uuid": "mintstick-verify.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "mintstick.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "90_new-workspace.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "mount-archive.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "change-background.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "mintstick-format.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "sample.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "set-as-background.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "91_delete-workspace.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "90_new-launcher.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "add-desklets.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "set-resolution.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "move-into-a-new-folder@anaximeno.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "gnome-system-monitor@100savage.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "open-in-remote-terminal@mamolinux.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "image-compressor@schorschii.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    }
+  ]
+}

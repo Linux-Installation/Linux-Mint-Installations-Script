@@ -1,0 +1,19 @@
+[Nemo Action]
+Name=Send via Bluetooth
+Name[ca]=Envia via Bluetooth
+Name[es]=Enviar por Bluetooth
+Name[hu]=Küldés Bluetooth-on keresztül
+Name[it]=Invia tramite Bluetooth
+Name[nl]=Verzenden via Bluetooth
+Comment=Send via Bluetooth: %F
+Comment[ca]=Envia via Bluetooth: %F
+Comment[es]=Enviar por Bluetooth: %F
+Comment[hu]=Küldés Bluetooth-on keresztül: %F
+Comment[it]=Invia tramite Bluetooth: %F
+Comment[nl]=Verzenden via Bluetooth: %F
+Exec=blueman-sendto %F
+Icon-Name=bluetooth
+Selection=notnone
+Extensions=nodirs;
+Quote=double
+Dependencies=blueman-sendto;

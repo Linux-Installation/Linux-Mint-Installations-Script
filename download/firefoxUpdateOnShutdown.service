@@ -1,0 +1,12 @@
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+ExecStart=nala install -y --download-only firefox
+ExecStop=sh -c 'systemctl list-jobs | grep -q "poweroff.target.*start" && apt install -y --only-upgrade firefox*'
+RemainAfterExit=true
+TimeoutStopSec=infinity
+
+[Unit]
+After=network-online.target
+Description=Update Firefox on Shutdown
