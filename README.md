@@ -2,7 +2,7 @@
 ## Supported Distributions
 In general all Linux Mint flavours should work, but this script was made for Linux Mint Cinnamon.  
 This script is not testet with LMDE! For LMDE you can use [this](https://github.com/Linux-Installation/LMDE-Installations-Script) script, which admittedly isn't maintained as well as this one.  
-Despite th intended effects of this script can only be reached with Linux Mint, the script should be work on Ubuntu, too.
+Despite the intended effects of this script can only be reached with Linux Mint, the script should work on Ubuntu, too.
 
 ## Why
 This is my post Installation script, which "automate" tasks which I do after installing Linux Mint.
@@ -81,6 +81,16 @@ New Flatpak Repository: [Flathub](https://flathub.org)
 
 ### other
 At the end of the script hardware probe will anonymously collect hardware details of the computers (devices information and depersonalized system logs) for helping people to collaboratively debug hardware related issues, check for Linux-compatibility and find drivers. For more Informations look here: https://linux-hardware.org/
+
+## How to Use
+Click on Code, then on Download ZIP.
+Extract the Zip.
+Make 22.sh executable and execute it..
+
+### How to execute 22.sh
+Open Nemo, go to the extracted folder, right click on a free space and click open in new Terminal. Type `./22.sh` 
+![open in terminal](https://github.com/user-attachments/assets/188d952d-17b6-48ac-9f39-784a2177d836)
+
 
 ## TODO
 - [ ] [Translate to english](https://github.com/Ubuntu-Installation/Installations-Script/issues/1)
