@@ -264,10 +264,10 @@ then
 	#	echo    # (optional) move to a new line
 		if [[ ! $REPLY =~ ^[Jj]$ ]]
 		then
-			overwriteCinnamon=true
-		    rm -rf $dir
+			echo "kopiere .config/cinnamon/spices nicht"
 		else
-		    echo "kopiere .config/cinnamon/spices nicht"
+		    overwriteCinnamon=true
+		    rm -rf $dir
 		fi
 	fi
 	if find ~/.config/ -name cinnamon -mtime +0 || [ $overwriteCinnamon == true ]
