@@ -115,7 +115,7 @@ then
 	fi	
 	
 	#kdeconnect-cinnamon
-	if [ cinnamon_kdeconnect == true ]
+	if [ "$cinnamon_kdeconnect" == true ]
 	then
 		if [ ! -d /home/$i/.config/cinnamon/spices/kdecapplet@joejoetv ] 
 		then
@@ -142,7 +142,7 @@ then
 		    sudo rm -f $file
 		fi
 	fi
-	if [ ! -d $dir ] || [ $overwriteNemo == true ]
+	if [ ! -d $dir ] || [ "$overwriteNemo" == true ]
 	then
 		#echo $dir
 		sudo mkdir -p /home/$i/.config/nemo/
@@ -168,7 +168,7 @@ then
 		    sudo rm -rf /home/$i/.config/gajim
 		fi
 	fi
-	if [ ! -d $dir ] || [ $overwriteGajim == true ]
+	if [ ! -d $dir ] || [ "$overwriteGajim" == true ]
 	then
 		#echo $dir
 		sudo mkdir -p /home/$i/.config
@@ -189,7 +189,7 @@ then
 		    sudo rm -rf /home/$i/.config/google-chrome
 		fi
 	fi
-	if [ ! -d $dir ] || [ $overwriteChrome == true ]
+	if [ ! -d $dir ] || [ "$overwriteChrome" == true ]
 	then
 		#echo $dir
 		sudo mkdir -p /home/$i/.config
@@ -210,7 +210,7 @@ then
 		    sudo rm -rf /home/$i/.config/vivaldi
 		fi
 	fi
-	if [ ! -d $dir ] || [ $overwriteChrome == true ]
+	if [ ! -d $dir ] || [ "$overwriteChrome" == true ]
 	then
 		#echo $dir
 		sudo mkdir -p /home/$i/.config
@@ -231,7 +231,7 @@ then
 		    sudo rm -rf /home/$i/.mozilla
 		fi
 	fi
-	if [ ! -d $dir ] || [ $overwriteFirefox == true ]
+	if [ ! -d $dir ] || [ "$overwriteFirefox" == true ]
 	then
 	    #echo $dir
 		sudo cp -rf $config/.mozilla /home/$i/
@@ -270,7 +270,7 @@ then
 		    rm -rf $dir
 		fi
 	fi
-	if find ~/.config/ -name cinnamon -mtime +0 || [ $overwriteCinnamon == true ]
+	if find ~/.config/ -name cinnamon -mtime +0 || [ "$overwriteCinnamon" == true ]
 	then
 		#echo $dir
 		mkdir -p $dir
