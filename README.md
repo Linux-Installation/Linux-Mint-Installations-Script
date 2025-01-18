@@ -85,11 +85,18 @@ At the end of the script hardware probe will anonymously collect hardware detail
 ## How to Use
 Click on Code, then on Download ZIP.
 Extract the Zip.
-Make 22.sh executable and execute it..
 
-### How to execute 22.sh
+### After a fresh install of Linux Mint 22
+Make 22.sh executable and execute it..  
+Therefore:  
 Open Nemo, go to the extracted folder, right click on a free space and click open in new Terminal. Type `./22.sh` 
 ![open in terminal](https://github.com/user-attachments/assets/188d952d-17b6-48ac-9f39-784a2177d836)
+### After a upgrade to Linux Mint 22.1 from Linux Mint 22.
+Make upgrade22_22-1.sh executable and execute it..
+Therefore:  
+Open Nemo, go to the extracted folder, right click on a free space and click open in new Terminal. Type `./upgrade22_22-1.sh` 
+![open in terminal](https://github.com/user-attachments/assets/188d952d-17b6-48ac-9f39-784a2177d836)
+
 
 
 ## TODO
