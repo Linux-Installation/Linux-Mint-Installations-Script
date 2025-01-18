@@ -86,7 +86,7 @@ then
 fi
 
 dconf write /org/cinnamon/settings-daemon/plugins/color/night-light-enabled true
-dconf write /org/cinnamon/settings-daemon/plugins/color/night-light-temperature 'uint32 1700'
+#dconf write /org/cinnamon/settings-daemon/plugins/color/night-light-temperature 'uint32 1700'
 
 sudo nala install --fix-broken -y
 
