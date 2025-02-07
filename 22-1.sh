@@ -31,9 +31,9 @@ sudo apt -y install nala
 sudo nala full-upgrade -y
 
 export DEBIAN_FRONTEND=noninteractive
-if ! grep Wilma /etc/issue
+if ! grep Xia /etc/issue
 then 
-	read -p "Du benutzt kein Linux Mint der Version 22! Wenn du das Script trotzdem fortsetzen möchtest drücke j!"
+	read -p "Du benutzt kein Linux Mint der Version 22.1! Wenn du das Script trotzdem fortsetzen möchtest drücke j!"
 	echo    # (optional) move to a new line
 	if [[ ! $REPLY =~ ^[Jj]$ ]]
 	then
