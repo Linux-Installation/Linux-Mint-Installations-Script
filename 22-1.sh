@@ -298,7 +298,7 @@ fi
 #HP-lip gui
 if grep de_ <<< $LANG
 then
-	string="Möchtest du den Füllstand einens HP Druckers abnfragen können? Dann drücke j!"
+	string="Möchtest du den Füllstand einens HP Druckers abfragen können? Dann drücke j!"
 else
 	string="Do you want to control the printer ink or toner levels of a HP printer? Then press j!"
 fi
