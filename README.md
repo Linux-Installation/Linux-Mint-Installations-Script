@@ -57,7 +57,6 @@ New Flatpak Repository: [Flathub](https://flathub.org)
 - [kate](https://kate-editor.org)
 - [konsole](https://konsole.kde.org/)
 - [element-desktop](https://element.io/get-started)
-- [redshift](http://jonls.dk/redshift/)
 - [nala](https://gitlab.com/volian/nala)
 - [qpwgraph](https://github.com/rncbc/qpwgraph)
 - [kasts](https://apps.kde.org/de/kasts/)
@@ -86,10 +85,10 @@ At the end of the script hardware probe will anonymously collect hardware detail
 Click on Code, then on Download ZIP.
 Extract the Zip.
 
-### After a fresh install of Linux Mint 22
+### After a fresh install of Linux Mint 22.1
 Make 22.sh executable and execute it..  
 Therefore:  
-Open Nemo, go to the extracted folder, right click on a free space and click open in new Terminal. Type `./22.sh` 
+Open Nemo, go to the extracted folder, right click on a free space and click open in new Terminal. Type `./22-1.sh` 
 ![open in terminal](https://github.com/user-attachments/assets/188d952d-17b6-48ac-9f39-784a2177d836)
 ### After a upgrade to Linux Mint 22.1 from Linux Mint 22.
 Make upgrade22_22-1.sh executable and execute it..
