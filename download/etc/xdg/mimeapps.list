@@ -43,6 +43,8 @@ text/x-vb=org.kde.kate.desktop
 text/yaml=org.kde.kate.desktop
 inode/directory=nemo.desktop
 text/plain=org.kde.kate.desktop
+x-scheme-handler/io.element.desktop=element-desktop.desktop
+x-scheme-handler/element=element-desktop.desktop
 
 [Added Associations]
 x-scheme-handler/mailto=thunderbird.desktop
@@ -88,3 +90,5 @@ text/x-sql=xed.desktop;org.kde.kate.desktop;
 text/x-vb=xed.desktop;org.kde.kate.desktop;
 text/yaml=xed.desktop;org.kde.kate.desktop;
 text/plain=org.kde.kate.desktop;
+x-scheme-handler/io.element.desktop=element-desktop.desktop
+x-scheme-handler/element=element-desktop.desktop
