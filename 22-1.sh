@@ -91,7 +91,7 @@ else
 	fi
 fi
 
-if [ "$1" = "" ] || [ "$1" = "rep" ]
+if [ "$1" == "" ] || [ "$1" == "rep" ]
 then
 #Kopiere bei Bedarf Firefox, Chromium und gajim Einstellungen
 alterUser=`who | awk '{ print $1 }'`
