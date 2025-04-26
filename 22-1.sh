@@ -81,15 +81,17 @@ if [[ ! $REPLY =~ ^[Jj]$ ]]
 then
 	pakete=`echo "$pakete evolution"`
 	remove=`echo "$remove thunderbird*"`
-	sudo sed -i 's/^.*x-scheme-handler\/mailto=thunderbird.desktop.*$/x-scheme-handler\/mailto=org.gnome.Evolution.desktop/' $config/.config/mimeapps.list
+	sudo sed -i 's/^.*x-scheme-handler\/mailto=thunderbird.desktop.*$/x-scheme-handler\/mailto=org.gnome.Evolution.desktop/' /etc/xdg/mimeapps.list 
 	sudo sed -i 's/^.*"thunderbird.desktop",.*$/"org.gnome.Evolution.desktop",/' $config/.config/cinnamon/spices/panel-launchers@cinnamon.org/18.json
 else
-	if grep "thunderbird" $config/.config/mimeapps.list
+	if grep "thunderbird" /etc/xdg/mimeapps.list 
 	then
-	sudo sed -i 's/^.*x-scheme-handler\/mailto=thunderbird.desktop.*$/x-scheme-handler\/mailto=org.gnome.Evolution.desktop/' $config/.config/mimeapps.list
+	sudo sed -i 's/^.*x-scheme-handler\/mailto=thunderbird.desktop.*$/x-scheme-handler\/mailto=org.gnome.Evolution.desktop/' /etc/xdg/mimeapps.list 
 	sudo sed -i 's/^.*"org.gnome.Evolution.desktop",.*$/"thunderbird.desktop",/' $config/.config/cinnamon/spices/panel-launchers@cinnamon.org/18.json
 	fi
 fi
+	sudo mkdir -p /etc/xdg/
+	sudo cp -rf $config/etc/xdg/mimeapps.list  /etc/xdg/mimeapps.list 
 
 if [ "$1" == "" ] || [ "$1" == "rep" ]
 then
@@ -99,8 +101,6 @@ alterUser=`who | awk '{ print $1 }'`
 for i in $(ls /home); do
 if [ $i != "lost+found" ]		
 then
-	sudo mkdir -p /home/$i/.config
-	sudo cp -rf $config/.config/mimeapps.list /home/$i/.config/
     #dayon
     sudo mkdir -p /home/$i/.dayon
 	sudo cp -rf $config/.dayon /home/$i
