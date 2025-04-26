@@ -246,6 +246,14 @@ then
 		sudo mkdir -p /home/$i/.local/share/cinnamon/extensions/
 		sudo cp -rf $config/.local/share/cinnamon/extensions/cinnamon-maximus@fmete /home/$i/.local/share/cinnamon/extensions/ 
 	fi	
+ 	if ! grep x-scheme-handler/element=element-desktop.desktop /home/$i/.config/mimeapps.list
+	then
+		printf "x-scheme-handler/element=element-desktop.desktop" >> /home/$i/.config/mimeapps.list
+	fi
+ 	if ! grep x-scheme-handler/io.element.desktop=element-desktop.desktop /home/$i/.config/mimeapps.list
+	then
+		printf "x-scheme-handler/io.element.desktop=element-desktop.desktop" >> /home/$i/.config/mimeapps.list
+	fi 
 	sudo chown -R $i:$i /home/$i	
 	fi
 	done
@@ -272,6 +280,7 @@ then
 		dconf load /org/cinnamon/ < $config/dconf/cinnamon-ubuntumate.conf
 		dconf write /org/cinnamon/enabled-extensions "['cinnamon-maximus@fmete']"
 	fi	
+ 
 fi
 
 #Nextcloud Desktop Client
