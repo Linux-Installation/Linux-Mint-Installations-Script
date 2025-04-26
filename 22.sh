@@ -246,6 +246,14 @@ then
 		sudo mkdir -p /home/$i/.local/share/cinnamon/extensions/
 		sudo cp -rf $config/.local/share/cinnamon/extensions/cinnamon-maximus@fmete /home/$i/.local/share/cinnamon/extensions/ 
 	fi	
+ 	if ! grep x-scheme-handler/element=element-desktop.desktop /home/$i/.config/mimeapps.list
+	then
+		printf "x-scheme-handler/element=element-desktop.desktop" >> /home/$i/.config/mimeapps.list
+	fi
+ 	if ! grep x-scheme-handler/io.element.desktop=element-desktop.desktop /home/$i/.config/mimeapps.list
+	then
+		printf "x-scheme-handler/io.element.desktop=element-desktop.desktop" >> /home/$i/.config/mimeapps.list
+	fi 
 	sudo chown -R $i:$i /home/$i	
 	fi
 	done
@@ -271,7 +279,8 @@ then
 		#dconf load /org/cinnamon/ < $config/dconf/cinnamon-stock.conf
 		dconf load /org/cinnamon/ < $config/dconf/cinnamon-ubuntumate.conf
 		dconf write /org/cinnamon/enabled-extensions "['cinnamon-maximus@fmete']"
-	fi	 
+	fi	
+ 
 fi
 
 #Nextcloud Desktop Client
@@ -397,15 +406,6 @@ cd ~/Downloads/
 sudo nala install -y wget apt-transport-https
 sudo wget -O /usr/share/keyrings/element-io-archive-keyring.gpg https://packages.element.io/debian/element-io-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/element-io-archive-keyring.gpg] https://packages.element.io/debian/ default main" | sudo tee /etc/apt/sources.list.d/element-io.list
-#Add Element https://github.com/element-hq/element-desktop/issues/2284
-if ! grep x-scheme-handler/element=element-desktop.desktop /usr/share/applications/mimeapps.list
-then
-	printf "x-scheme-handler/element=element-desktop.desktop" >> /usr/share/applications/mimeapps.list
-fi
-if ! grep x-scheme-handler/io.element.desktop=element-desktop.desktop /usr/share/applications/mimeapps.list
-then
-	printf "x-scheme-handler/io.element.desktop=element-desktop.desktop" >> /usr/share/applications/mimeapps.list
-fi 
 
 sudo add-apt-repository -y ppa:regal/dayon
 #no 22.04 yet
