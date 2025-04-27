@@ -93,11 +93,17 @@ fi
 	sudo mkdir -p /etc/xdg/
 	sudo cp -rf $config/etc/xdg/mimeapps.list  /etc/xdg/mimeapps.list 
 
-if [ "$1" == "" ] || [ "$1" == "rep" ]
-then
 #Kopiere bei Bedarf Firefox, Chromium und gajim Einstellungen
-alterUser=`who | awk '{ print $1 }'`
-
+if grep de_ <<< $LANG
+then
+	string="Sollen Standard-Konfigurationsdateien ins Home-Verzeichnis geschrieben werden? Dann drücke j!"
+else
+	string="Shall default configfiles be written in the Home Folder? Then press j!"
+fi
+read -p "$string"
+if [[ ! $REPLY =~ ^[Jj]$ ]]
+then
+	
 for i in $(ls /home); do
 if [ $i != "lost+found" ]		
 then
@@ -337,7 +343,7 @@ read -p "Soll Vivaldi (Chromium based Browser) installiert werden? Dann drücke 
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Jj]$ ]]
 then
-    wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | gpg --dearmor | sudo dd of=/usr/share/keyrings/vivaldi-browser.gpg
+	wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | gpg --dearmor | sudo dd of=/usr/share/keyrings/vivaldi-browser.gpg    
     echo "deb [signed-by=/usr/share/keyrings/vivaldi-browser.gpg arch=$(dpkg --print-architecture)] https://repo.vivaldi.com/archive/deb/ stable main" | sudo dd of=/etc/apt/sources.list.d/vivaldi-archive.list
     pakete=`echo "$pakete vivaldi-stable"`
 fi
@@ -352,10 +358,13 @@ then
     #echo    # (optional) move to a new line
     if [[ $REPLY =~ ^[Jj]$ ]]
     then
-        sudo sh -c 'echo "[Desktop Entry]" > /etc/xdg/autostart/gajim.desktop'
-        sudo sh -c 'echo "Type=gajim" >> /etc/xdg/autostart/gajim.desktop'
-        sudo sh -c 'echo "Name=gajim" >> /etc/xdg/autostart/gajim.desktop'
-        sudo sh -c 'echo "Exec=gajim" >> /etc/xdg/autostart/gajim.desktop'
+		if [ ! -f /etc/xdg/autostart/gajim.desktop ] 
+		then
+			sudo sh -c 'echo "[Desktop Entry]" > /etc/xdg/autostart/gajim.desktop'
+			sudo sh -c 'echo "Type=gajim" >> /etc/xdg/autostart/gajim.desktop'
+			sudo sh -c 'echo "Name=gajim" >> /etc/xdg/autostart/gajim.desktop'
+			sudo sh -c 'echo "Exec=gajim" >> /etc/xdg/autostart/gajim.desktop'
+		fi
     fi
 fi
 
@@ -428,9 +437,9 @@ echo $pakete > pakete.log
 sudo nala install -y $pakete
 
 #Add Remotely, hide Dayon Assistant 
-sudo mv $config/usr/share/applications/* /usr/share/applications/
-sudo mv $config/usr/share/icons/* /usr/share/icons/
-sudo mv $config/usr/local/bin/* /usr/local/bin/
+sudo cp $config/usr/share/applications/* /usr/share/applications/
+sudo cp $config/usr/share/icons/* /usr/share/icons/
+sudo cp $config/usr/local/bin/* /usr/local/bin/
 
 sudo update-alternatives --set x-terminal-emulator /usr/bin/konsole
 dconf write /org/cinnamon/desktop/applications/terminal/exec "'konsole'"
