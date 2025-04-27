@@ -104,7 +104,7 @@ then
     #dayon
     sudo mkdir -p /home/$i/.dayon
 	sudo cp -rf $config/.dayon /home/$i
-	#hide Dayon Assistant and Matrix - Avoiding confusion with Dayon Assisted and Element Desktop
+	#Add Remotely, hide Dayon Assistant and Matrix - Avoiding confusion with Dayon Assisted and Element Desktop
 	sudo mkdir -p /home/$i/.local/share/applications
 	sudo cp -f $config/.local/share/applications/* /home/$i/.local/share/applications/
 	
@@ -427,8 +427,10 @@ sudo nala install -y --no-install-recommends $paketerec
 echo $pakete > pakete.log
 sudo nala install -y $pakete
 
-#hide Dayon Assistant
-sudo mv $config/usr/share/applications/dayon_assistant.desktop /usr/share/applications/
+#Add Remotely, hide Dayon Assistant 
+sudo mv $config/usr/share/applications/* /usr/share/applications/
+sudo mv $config/usr/share/icons/* /usr/share/icons/
+sudo mv $config/usr/local/bin/* /usr/local/bin/
 
 sudo update-alternatives --set x-terminal-emulator /usr/bin/konsole
 dconf write /org/cinnamon/desktop/applications/terminal/exec "'konsole'"
