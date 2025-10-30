@@ -1,3 +1,5 @@
-"room_directory": {
-    "servers": ["matrixrooms.info"]
+{
+    "room_directory": {
+        "servers": ["matrixrooms.info"]
+    }
 }
