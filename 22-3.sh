@@ -304,7 +304,8 @@ fi
 #HP-lip gui
 if grep de_ <<< $LANG
 then
-	string="Möchtest du den Füllstand einens HP Druckers abfragen können? Dann drücke j!"
+	string="Möchtest du den Füllstand einens HP Druckers abfragen könn
+en? Dann drücke j!"
 else
 	string="Do you want to control the printer ink or toner levels of a HP printer? Then press j!"
 fi
@@ -467,11 +468,6 @@ sudo nala install --fix-broken -y
 if grep "Linux Mint" /etc/issue
 then 
 	sudo mintupdate-automation upgrade enable
-	sudo mintupdate-automation blacklist enable
-	if ! grep "firefox" /etc/mintupdate.blacklist
-	then
-		sudo su -c 'echo "firefox" >> /etc/mintupdate.blacklist'
-	fi
 	sudo mintupdate-automation autoremove enable
 	#flatpack and cinnamon-spices autoupdates and Hiding linuxmint updates when not necessary
 	dconf load /com/linuxmint/updates/ < $config/dconf/linuxmint-updates.conf
@@ -479,10 +475,6 @@ else
 	sudo dpkg-reconfigure -plow unattended-upgrades
 	sudo cp -f $config/50unattended-upgrades /etc/apt/apt.conf.d/50unattended-upgrades
 fi
-
-sudo cp -f $config/firefoxUpdateOnShutdown.service /etc/systemd/system/firefoxUpdateOnShutdown.service
-sudo systemctl daemon-reload
-sudo systemctl enable firefoxUpdateOnShutdown.service
 
 #Enable guest user
 declare file=/etc/lightdm/lightdm.conf
