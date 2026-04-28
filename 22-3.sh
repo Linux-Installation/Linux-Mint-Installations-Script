@@ -372,6 +372,8 @@ fi
 #flathub
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
+sudo flatpak -y install rustdesk
+
 #Fritz!Box
 read -p "Soll das Programm Roger Router (ehemals ffgtk) für die Fritz!Box installiert werden? Dann drücke j!"
 echo    # (optional) move to a new line
