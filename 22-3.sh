@@ -8,7 +8,7 @@ remove=""
 # Add fastly repository
 if ! grep fastly.linuxmint.io /etc/apt/sources.list.d/official-package-repositories.list
 then
-	sudo sed -i '/^deb http:\/\/packages.linuxmint.com xia main upstream import backport.*$/ideb http:\/\/fastly.linuxmint.io xia main upstream import backport' /etc/apt/sources.list.d/official-package-repositories.list
+	sudo sed -i '/^deb http:\/\/packages.linuxmint.com zena main upstream import backport.*$/ideb http:\/\/fastly.linuxmint.io zena main upstream import backport' /etc/apt/sources.list.d/official-package-repositories.list
 fi
 #Add other mirrors if timezone is Europe/Berlin
 if grep Europe/Berlin /etc/timezone
@@ -21,7 +21,7 @@ then
 		fi
 		if ! grep ftp.rz.uni-frankfurt.de /etc/apt/sources.list.d/official-package-repositories.list
 		then
-			sudo sed -i '/^deb http:\/\/packages.linuxmint.com xia main upstream import backport.*$/ideb https:\/\/ftp-stud.hs-esslingen.de\/pub\/Mirrors\/packages.linuxmint.com xia main upstream import backport\ndeb https:\/\/ftp.rz.uni-frankfurt.de\/pub\/mirrors\/linux-mint\/packages xia main upstream import backport' /etc/apt/sources.list.d/official-package-repositories.list
+			sudo sed -i '/^deb http:\/\/packages.linuxmint.com zena main upstream import backport.*$/ideb https:\/\/ftp-stud.hs-esslingen.de\/pub\/Mirrors\/packages.linuxmint.com zena main upstream import backport\ndeb https:\/\/ftp.rz.uni-frankfurt.de\/pub\/mirrors\/linux-mint\/packages zena main upstream import backport' /etc/apt/sources.list.d/official-package-repositories.list
 		fi
 	fi
 fi
@@ -31,9 +31,9 @@ sudo apt -y install nala
 sudo nala full-upgrade -y
 
 export DEBIAN_FRONTEND=noninteractive
-if ! grep Xia /etc/issue
+if ! grep zena /etc/issue
 then 
-	read -p "Du benutzt kein Linux Mint der Version 22.1! Wenn du das Script trotzdem fortsetzen möchtest drücke j!"
+	read -p "Du benutzt kein Linux Mint der Version 22.3! Wenn du das Script trotzdem fortsetzen möchtest drücke j!"
 	echo    # (optional) move to a new line
 	if [[ ! $REPLY =~ ^[Jj]$ ]]
 	then
