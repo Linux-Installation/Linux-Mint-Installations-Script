@@ -31,7 +31,7 @@ sudo apt -y install nala
 sudo nala full-upgrade -y
 
 export DEBIAN_FRONTEND=noninteractive
-if ! grep zena /etc/issue
+if ! grep Zena /etc/issue
 then 
 	read -p "Du benutzt kein Linux Mint der Version 22.3! Wenn du das Script trotzdem fortsetzen möchtest drücke j!"
 	echo    # (optional) move to a new line
