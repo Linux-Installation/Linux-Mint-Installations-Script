@@ -101,7 +101,7 @@ else
 	string="Shall default configfiles be written in the Home Folder? Then press j!"
 fi
 read -p "$string"
-if [[ ! $REPLY =~ ^[Jj]$ ]]
+if [[ $REPLY =~ ^[Jj]$ ]]
 then
 	
 for i in $(ls /home); do
@@ -362,7 +362,7 @@ then
 		if [ ! -f /etc/xdg/autostart/gajim.desktop ] 
 		then
 			sudo sh -c 'echo "[Desktop Entry]" > /etc/xdg/autostart/gajim.desktop'
-			sudo sh -c 'echo "Type=gajim" >> /etc/xdg/autostart/gajim.desktop'
+			sudo sh -c 'echo "Type=Application" >> /etc/xdg/autostart/gajim.desktop'
 			sudo sh -c 'echo "Name=gajim" >> /etc/xdg/autostart/gajim.desktop'
 			sudo sh -c 'echo "Exec=gajim" >> /etc/xdg/autostart/gajim.desktop'
 		fi
